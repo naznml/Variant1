@@ -1,744 +1,694 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вариант 1 — Магистратура КТ</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вариант 1 — Магистратура КТ</title>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RQRSQ92JD8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-RQRSQ92JD8');
-  </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQRSQ92JD8"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RQRSQ92JD8');
+</script>
 
-  <style>
-    *{box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-
-    body{
-      margin:0;
-      font-family:Arial,sans-serif;
-      background:linear-gradient(135deg,#e3f2fd,#f1f8e9);
-      color:#1b1b1b;
-    }
-
-    .wrapper{
-      max-width:950px;
-      margin:auto;
-      padding:16px;
-    }
-
-    .hero{
-      background:linear-gradient(135deg,#1565c0,#43a047);
-      color:white;
-      padding:28px 20px;
-      border-radius:22px;
-      text-align:center;
-      margin-bottom:18px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .hero h1{
-      margin:0 0 12px;
-      font-size:30px;
-      line-height:1.2;
-    }
-
-    .hero p{
-      margin:8px 0;
-      font-size:16px;
-      line-height:1.5;
-    }
-
-    .badge{
-      display:inline-block;
-      background:white;
-      color:#1565c0;
-      padding:8px 14px;
-      border-radius:999px;
-      font-weight:bold;
-      margin-top:12px;
-      font-size:14px;
-    }
-
-    .nav-buttons{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:10px;
-      margin-bottom:18px;
-    }
-
-    .nav-buttons a{
-      text-align:center;
-      text-decoration:none;
-      background:white;
-      color:#1565c0;
-      padding:14px;
-      border-radius:14px;
-      font-weight:bold;
-      box-shadow:0 5px 15px rgba(0,0,0,0.08);
-      border:1px solid #dbeafe;
-    }
-
-    .nav-buttons a:hover{
-      background:#e3f2fd;
-    }
-
-    .telegram-promo{
-      background:white;
-      border:2px solid #229ED9;
-      padding:20px;
-      border-radius:20px;
-      text-align:center;
-      margin-bottom:18px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.08);
-    }
-
-    .telegram-promo h2{
-      color:#1565c0;
-      margin:0 0 10px;
-      font-size:22px;
-    }
-
-    .telegram-promo p{
-      margin:8px 0;
-      line-height:1.5;
-      font-size:16px;
-    }
-
-    .promo-btn{
-      display:block;
-      text-decoration:none;
-      background:#229ED9;
-      color:white;
-      padding:14px;
-      border-radius:14px;
-      margin-top:14px;
-      font-weight:bold;
-      font-size:17px;
-    }
-
-    .card{
-      background:white;
-      padding:22px;
-      border-radius:20px;
-      margin-bottom:18px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.08);
-    }
-
-    .card h2{
-      margin-top:0;
-      color:#1565c0;
-      font-size:22px;
-    }
-
-    .section-title{
-      background:#e3f2fd;
-      border-left:5px solid #1565c0;
-      padding:14px;
-      border-radius:14px;
-      margin-bottom:18px;
-    }
-
-    .question{
-      background:#f7f7f7;
-      padding:18px;
-      border-radius:16px;
-      margin-bottom:16px;
-      border-left:5px solid #43a047;
-    }
-
-    .question b{
-      display:block;
-      margin-bottom:12px;
-      font-size:16px;
-      line-height:1.5;
-    }
-
-    .question-image{
-      width:100%;
-      max-width:560px;
-      display:block;
-      margin:12px auto;
-      border-radius:12px;
-      border:1px solid #ddd;
-      background:white;
-    }
-
-    label{
-      display:block;
-      background:white;
-      padding:12px;
-      border-radius:12px;
-      margin:8px 0;
-      border:1px solid #ddd;
-      cursor:pointer;
-      line-height:1.4;
-    }
-
-    label:hover{
-      background:#e8f5e9;
-    }
-
-    input[type="radio"]{
-      margin-right:8px;
-      transform:scale(1.1);
-    }
-
-    button{
-      width:100%;
-      background:#1565c0;
-      color:white;
-      border:none;
-      padding:16px;
-      border-radius:14px;
-      cursor:pointer;
-      font-size:18px;
-      font-weight:bold;
-      margin-top:10px;
-    }
-
-    button:hover{
-      background:#0d47a1;
-    }
-
-    .reading-block{
-      margin-bottom:30px;
-    }
-
-    .sticky-text{
-      position:sticky;
-      top:10px;
-      z-index:5;
-      background:white;
-      border:2px solid #1565c0;
-      padding:16px;
-      border-radius:16px;
-      margin-bottom:18px;
-      max-height:42vh;
-      overflow-y:auto;
-      line-height:1.6;
-      box-shadow:0 6px 18px rgba(0,0,0,0.08);
-    }
-
-    .sticky-text h3{
-      margin-top:0;
-      color:#1565c0;
-    }
-
-    .result-box{
-      background:#e8f5e9;
-      border:2px solid #43a047;
-      padding:22px;
-      border-radius:20px;
-      text-align:center;
-      margin-bottom:18px;
-    }
-
-    .result-box h2{
-      margin-top:0;
-      color:#2e7d32;
-    }
-
-    .score-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:10px;
-      margin-top:15px;
-    }
-
-    .score-item{
-      background:white;
-      padding:12px;
-      border-radius:14px;
-      font-weight:bold;
-    }
-
-    .correct{
-      color:green;
-      font-weight:bold;
-    }
-
-    .wrong{
-      color:red;
-      font-weight:bold;
-    }
-
-    .explanation{
-      background:#f1f8e9;
-      padding:12px;
-      margin:10px 0 18px;
-      border-radius:12px;
-      line-height:1.5;
-    }
-
-    .locked{
-      opacity:0.75;
-      background:#fafafa;
-    }
-
-    .contact-box{
-      background:#ffffff;
-      border:2px solid #1565c0;
-      padding:22px;
-      border-radius:20px;
-      text-align:center;
-      margin-bottom:18px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.08);
-    }
-
-    .contact-box h2{
-      color:#1565c0;
-      margin-top:0;
-    }
-
-    .contact-box p{
-      line-height:1.5;
-      font-size:16px;
-    }
-
-    .contact-btn{
-      display:block;
-      text-decoration:none;
-      color:white;
-      padding:14px;
-      border-radius:14px;
-      margin:10px 0;
-      font-weight:bold;
-      font-size:17px;
-    }
-
-    .telegram{background:#229ED9;}
-    .whatsapp{background:#25D366;}
-
-    .footer{
-      text-align:center;
-      color:#555;
-      font-size:14px;
-      padding:20px 0;
-    }
-
-    @media(max-width:600px){
-      .wrapper{padding:12px;}
-      .hero{padding:24px 16px;border-radius:18px;}
-      .hero h1{font-size:24px;}
-      .hero p{font-size:15px;}
-      .nav-buttons{grid-template-columns:1fr;}
-      .card{padding:16px;border-radius:17px;}
-      .question{padding:15px;}
-      .question b{font-size:15px;}
-      label{font-size:15px;padding:11px;}
-      button{font-size:16px;padding:15px;}
-      .telegram-promo{padding:16px;border-radius:17px;}
-      .telegram-promo h2{font-size:19px;}
-      .sticky-text{max-height:40vh;top:5px;}
-      .score-grid{grid-template-columns:1fr;}
-    }
-  </style>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#e3f2fd,#f1f8e9);
+  color:#1b1b1b;
+}
+.wrapper{
+  max-width:950px;
+  margin:auto;
+  padding:16px;
+}
+.hero{
+  background:linear-gradient(135deg,#1565c0,#43a047);
+  color:white;
+  padding:28px 20px;
+  border-radius:22px;
+  text-align:center;
+  margin-bottom:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+.hero h1{
+  margin:0 0 12px;
+  font-size:30px;
+  line-height:1.2;
+}
+.hero p{
+  margin:8px 0;
+  font-size:16px;
+  line-height:1.5;
+}
+.badge{
+  display:inline-block;
+  background:white;
+  color:#1565c0;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:bold;
+  margin-top:12px;
+  font-size:14px;
+}
+.nav-buttons{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:18px;
+}
+.nav-buttons a{
+  text-align:center;
+  text-decoration:none;
+  background:white;
+  color:#1565c0;
+  padding:14px;
+  border-radius:14px;
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
+  border:1px solid #dbeafe;
+}
+.telegram-promo{
+  background:white;
+  border:2px solid #229ED9;
+  padding:20px;
+  border-radius:20px;
+  text-align:center;
+  margin-bottom:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+.telegram-promo h2{
+  color:#1565c0;
+  margin:0 0 10px;
+  font-size:22px;
+}
+.telegram-promo p{
+  margin:8px 0;
+  line-height:1.5;
+  font-size:16px;
+}
+.promo-btn{
+  display:block;
+  text-decoration:none;
+  background:#229ED9;
+  color:white;
+  padding:14px;
+  border-radius:14px;
+  margin-top:14px;
+  font-weight:bold;
+  font-size:17px;
+}
+.card{
+  background:white;
+  padding:22px;
+  border-radius:20px;
+  margin-bottom:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+.card h2{
+  margin-top:0;
+  color:#1565c0;
+  font-size:22px;
+}
+.section-title{
+  background:#e3f2fd;
+  border-left:5px solid #1565c0;
+  padding:14px;
+  border-radius:14px;
+  margin-bottom:18px;
+}
+.question{
+  background:#f7f7f7;
+  padding:18px;
+  border-radius:16px;
+  margin-bottom:16px;
+  border-left:5px solid #43a047;
+}
+.question b{
+  display:block;
+  margin-bottom:12px;
+  font-size:16px;
+  line-height:1.5;
+}
+.question-image{
+  width:100%;
+  max-width:560px;
+  display:block;
+  margin:12px auto;
+  border-radius:12px;
+  border:1px solid #ddd;
+  background:white;
+}
+label{
+  display:block;
+  background:white;
+  padding:12px;
+  border-radius:12px;
+  margin:8px 0;
+  border:1px solid #ddd;
+  cursor:pointer;
+  line-height:1.4;
+}
+label:hover{background:#e8f5e9}
+input[type="radio"]{
+  margin-right:8px;
+  transform:scale(1.1);
+}
+button{
+  width:100%;
+  background:#1565c0;
+  color:white;
+  border:none;
+  padding:16px;
+  border-radius:14px;
+  cursor:pointer;
+  font-size:18px;
+  font-weight:bold;
+  margin-top:10px;
+}
+button:hover{background:#0d47a1}
+audio{
+  width:100%;
+  margin:12px 0 18px;
+}
+.text-box{
+  background:#fafafa;
+  padding:16px;
+  border-radius:16px;
+  line-height:1.6;
+  margin-bottom:18px;
+  border:1px solid #ddd;
+  font-size:15px;
+}
+.reading-block{
+  margin-bottom:30px;
+}
+.sticky-text{
+  position:sticky;
+  top:10px;
+  z-index:5;
+  background:white;
+  border:2px solid #1565c0;
+  padding:16px;
+  border-radius:16px;
+  margin-bottom:18px;
+  max-height:42vh;
+  overflow-y:auto;
+  line-height:1.6;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+.sticky-text h3{
+  margin-top:0;
+  color:#1565c0;
+}
+.result-box{
+  background:#e8f5e9;
+  border:2px solid #43a047;
+  padding:22px;
+  border-radius:20px;
+  text-align:center;
+  margin-bottom:18px;
+}
+.result-box h2{
+  margin-top:0;
+  color:#2e7d32;
+}
+.score-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:15px;
+}
+.score-item{
+  background:white;
+  padding:12px;
+  border-radius:14px;
+  font-weight:bold;
+}
+.correct{
+  color:green;
+  font-weight:bold;
+}
+.wrong{
+  color:red;
+  font-weight:bold;
+}
+.explanation{
+  background:#f1f8e9;
+  padding:12px;
+  margin:10px 0 18px;
+  border-radius:12px;
+  line-height:1.5;
+}
+.contact-box{
+  background:white;
+  border:2px solid #1565c0;
+  padding:22px;
+  border-radius:20px;
+  text-align:center;
+  margin-bottom:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+.contact-box h2{
+  color:#1565c0;
+  margin-top:0;
+}
+.contact-btn{
+  display:block;
+  text-decoration:none;
+  color:white;
+  padding:14px;
+  border-radius:14px;
+  margin:10px 0;
+  font-weight:bold;
+  font-size:17px;
+}
+.telegram{background:#229ED9}
+.whatsapp{background:#25D366}
+.footer{
+  text-align:center;
+  color:#555;
+  font-size:14px;
+  padding:20px 0;
+}
+@media(max-width:600px){
+  .wrapper{padding:12px}
+  .hero{padding:24px 16px;border-radius:18px}
+  .hero h1{font-size:24px}
+  .hero p{font-size:15px}
+  .nav-buttons{grid-template-columns:1fr}
+  .card{padding:16px;border-radius:17px}
+  .question{padding:15px}
+  .question b{font-size:15px}
+  label{font-size:15px;padding:11px}
+  button{font-size:16px;padding:15px}
+  .telegram-promo{padding:16px;border-radius:17px}
+  .telegram-promo h2{font-size:19px}
+  .sticky-text{max-height:40vh;top:5px}
+  .score-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
-
 <div class="wrapper">
 
-  <div class="hero">
-    <h1>Вариант 1 — Магистратура КТ</h1>
-    <p>Міндетті блоктар бойынша дайындық тесті</p>
-    <p>Сыни ойлау, аналитикалық ойлау және ағылшын тілі</p>
-    <span class="badge">30 сұрақ • Нәтиже бірден шығады</span>
+<div class="hero">
+  <h1>Вариант 1 — Магистратура КТ</h1>
+  <p>Міндетті блоктар бойынша дайындық тесті</p>
+  <p>Сыни ойлау, аналитикалық ойлау және ағылшын тілі</p>
+  <span class="badge">80 сұрақ • Нәтиже бірден шығады</span>
+</div>
+
+<div class="nav-buttons">
+  <a href="#critical">Сыни ойлау</a>
+  <a href="#analytical">Аналитикалық ойлау</a>
+  <a href="#english">Ағылшын тілі</a>
+</div>
+
+<div class="telegram-promo">
+  <h2>ҚОСЫМША ТЕГІН ТЕСТТЕР TELEGRAM-КАНАЛДА</h2>
+  <p>Ағылшын тілі, ТГО және педагогика бойынша тегін тесттер бар.</p>
+  <p>Дополнительные бесплатные тесты публикуются в Telegram-канале.</p>
+  <a class="promo-btn" href="https://t.me/+8SolEPgN4Is0MTMy" target="_blank">Telegram-каналға кіру</a>
+</div>
+
+<div class="card">
+  <h2>Нұсқаулық</h2>
+  <p>Бұл толық Вариант 1 тесті 3 бөлімнен тұрады:</p>
+  <ul>
+    <li><b>Сыни ойлау:</b> 15 сұрақ</li>
+    <li><b>Аналитикалық ойлау:</b> 15 сұрақ</li>
+    <li><b>Ағылшын тілі:</b> 50 сұрақ</li>
+  </ul>
+  <p>Барлық сұрақтарға жауап беріп, соңында нәтижені көріңіз.</p>
+</div>
+
+<section id="critical" class="card">
+  <div class="section-title">
+    <h2>Part 1. Сыни ойлау</h2>
+    <p>Дұрыс жауапты таңдаңыз.</p>
+  </div>
+  <div id="criticalQuiz"></div>
+  <div id="criticalResults"></div>
+</section>
+
+<section id="analytical" class="card">
+  <div class="section-title">
+    <h2>Part 2. Аналитикалық ойлау</h2>
+    <p>Мәтінді оқып, дұрыс жауапты таңдаңыз.</p>
   </div>
 
-  <div class="nav-buttons">
-    <a href="#critical">Сыни ойлау</a>
-    <a href="#analytical">Аналитикалық ойлау</a>
-    <a href="#english">Ағылшын тілі</a>
+  <div id="analyticalIntro"></div>
+
+  <div class="reading-block">
+    <div class="sticky-text">
+      <h3>Мәтін 1</h3>
+      <p>ХІХ ғасырдың ІІ жартысы, әсіресе, соңғы ширегі қазақ халқының әлеуметтік-экономикалық, саяси және мәдени өмірінде елеулі тарихи оқиғалар, өзгеріс-жаңалықтар мен шиеленіскен тартыстар дәуірі болды.</p>
+      <p>Тілдің белгілі бір кезеңдегі деңгейі мен даму барысына қоғам өмірінің елеулі әсер ететіні белгілі. Бұл кезеңде Қазақстанда кітап бастырудың етек ала бастауы, мерзімді баспасөздің, көпшілікке арналған жартылай ғылыми әдебиеттің пайда болуы, азаматтық оқу-білімнің қолға алынуы әдеби тілдің жазба түрін жандандырып, оның нақтылы стильдерге тарамдалу көріністерін туғызды.</p>
+      <p>Діни оқудың қазақ қауымында осы тұста едәуір жандануы араб-парсы, шағатай тілдерінің одан әрі таныс бола түсуіне, бұл тілдердің қазақ тіліне әсер етіп, ауыз-түйістің жақсаруына септігін тигізді. Сондықтан тіл саясатын, оның жай-күйін жақсы танып, тілдің арта түскен әлеуметтік қызметін дұрыс түсінген қалам қайраткерлерінің атқаратын жұмыстары ұлғайды.</p>
+    </div>
+    <div id="analyticalText1"></div>
   </div>
 
-  <div class="telegram-promo">
-    <h2>ҚОСЫМША ТЕГІН ТЕСТТЕР TELEGRAM-КАНАЛДА</h2>
-    <p>Сыни ойлау, аналитикалық ойлау, ағылшын тілі және педагогика бойынша тегін тесттер жарияланады.</p>
-    <p>Дополнительные бесплатные тесты публикуются в Telegram-канале.</p>
-
-    <a class="promo-btn" href="https://t.me/+8SolEPgN4Is0MTMy" target="_blank">
-      Telegram-каналға кіру
-    </a>
+  <div class="reading-block">
+    <div class="sticky-text">
+      <h3>Мәтін 2</h3>
+      <p>Жүйе - кең мағынада бір-бірімен байланысып, белгілі тәртіппен орналасқан қандай да бір теорияның жиынтығы. Жүйелерді тірі және тірі емес (өлі) деп бөледі.</p>
+      <p>Тірі емес жүйелерге математикада пайдаланылатын аксиомалар және анықтамалар, сандық жүйелер, ақпараттық жүйелер жатады. Ал тірі жүйелер биологиялық категориялар болып табылады.</p>
+      <p>Тірі жүйелердің тірі емес жүйелерге қарағанда біршама ерекшеліктері болады. Маңызды ерекшелігінің бірі, тірі жүйелерде энергия, зат алмасу және ақпарат алмасу процестері жүрмесе тіршілігі тоқталады. Олар сыртқы ортамен қарым-қатынаста болады, сондықтан ашық жүйе болып саналады. Тірі жүйелерге өзін-өзі өндіру, реттеу және қайта қалпына келу процестері тән.</p>
+    </div>
+    <div id="analyticalText2"></div>
   </div>
 
-  <div class="card">
-    <h2>Нұсқаулық</h2>
-    <p>Бұл сайтта толық Вариант 1 болады.</p>
-    <ul>
-      <li><b>Сыни ойлау:</b> 15 сұрақ</li>
-      <li><b>Аналитикалық ойлау:</b> 15 сұрақ</li>
-      <li><b>Ағылшын тілі:</b> кейін қосылады</li>
-    </ul>
-    <p>Барлық сұрақтарға жауап беріп, соңында нәтижені көріңіз.</p>
+  <div class="reading-block">
+    <div class="sticky-text">
+      <h3>Мәтін 3</h3>
+      <p>Хромосомалар - ядроның ең маңызды органоиды. Оның құрамында ДНҚ мен негізгі ақуыз - гистон болады; гистонда көп мөлшерлі лизин мен аргинин болады. Гистонның бұл екі заттық комплексі хромосоманың шамасы 90%-тін құрады.</p>
+      <p>Хромосоманың құрамына және де РНҚ, қышқыл ақуыздар, липидтер, минералды заттар және ДНҚ-ның репрадукциясында (екі еселенуіне) қажетті ДНҚ-полимераза ферменті кіреді.</p>
+      <p>Хромосомалардың ұзындығы ядроның диаметрінен ондаған және жүздеген есе артық болуы ықтимал. Интерфазада хромосомалар тек қана электрондық микроскоп арқылы және ұзын жіңішке жіпшелер - хроматин (хромосомалардың спиральсыздану күйі) болып саналады. Бұл кезеңде хромосомалардың екі еселену (редупликация) процесі жүреді; интерфазанын соңында хромосоманың әрқайсысы екі хроматидтерден тұрады.</p>
+    </div>
+    <div id="analyticalText3"></div>
   </div>
 
-  <section id="critical" class="card">
-    <div class="section-title">
-      <h2>Part 1. Сыни ойлау</h2>
-      <p>Дұрыс жауапты таңдаңыз.</p>
-    </div>
-    <div id="criticalQuiz"></div>
-  </section>
+  <div id="analyticalResults"></div>
+</section>
 
-  <section id="analytical" class="card">
-    <div class="section-title">
-      <h2>Part 2. Аналитикалық ойлау</h2>
-      <p>Мәтінді оқып, дұрыс жауапты таңдаңыз.</p>
-    </div>
-
-    <div id="analyticalIntro"></div>
-
-    <div class="reading-block">
-      <div class="sticky-text">
-        <h3>Мәтін 1</h3>
-        <p>ХІХ ғасырдың ІІ жартысы, әсіресе, соңғы ширегі қазақ халқының әлеуметтік-экономикалық, саяси және мәдени өмірінде елеулі тарихи оқиғалар, өзгеріс-жаңалықтар мен шиеленіскен тартыстар дәуірі болды.</p>
-        <p>Тілдің белгілі бір кезеңдегі деңгейі мен даму барысына қоғам өмірінің елеулі әсер ететіні белгілі. Бұл кезеңде Қазақстанда кітап бастырудың етек ала бастауы, мерзімді баспасөздің, көпшілікке арналған жартылай ғылыми әдебиеттің пайда болуы, азаматтық оқу-білімнің қолға алынуы әдеби тілдің жазба түрін жандандырып, оның нақтылы стильдерге тарамдалу көріністерін туғызды.</p>
-        <p>Діни оқудың қазақ қауымында осы тұста едәуір жандануы араб-парсы, шағатай тілдерінің одан әрі таныс бола түсуіне, бұл тілдердің қазақ тіліне әсер етіп, ауыз-түйістің жақсаруына септігін тигізді. Сондықтан тіл саясатын, оның жай-күйін жақсы танып, тілдің арта түскен әлеуметтік қызметін дұрыс түсінген қалам қайраткерлерінің атқаратын жұмыстары ұлғайды.</p>
-      </div>
-      <div id="analyticalText1"></div>
-    </div>
-
-    <div class="reading-block">
-      <div class="sticky-text">
-        <h3>Мәтін 2</h3>
-        <p>Жүйе - кең мағынада бір-бірімен байланысып, белгілі тәртіппен орналасқан қандай да бір теорияның жиынтығы. Жүйелерді тірі және тірі емес (өлі) деп бөледі.</p>
-        <p>Тірі емес жүйелерге математикада пайдаланылатын аксиомалар және анықтамалар, сандық жүйелер, ақпараттық жүйелер жатады. Ал тірі жүйелер биологиялық категориялар болып табылады.</p>
-        <p>Тірі жүйелердің тірі емес жүйелерге қарағанда біршама ерекшеліктері болады. Маңызды ерекшелігінің бірі, тірі жүйелерде энергия, зат алмасу және ақпарат алмасу процестері жүрмесе тіршілігі тоқталады. Олар сыртқы ортамен қарым-қатынаста болады, сондықтан ашық жүйе болып саналады. Тірі жүйелерге өзін-өзі өндіру, реттеу және қайта қалпына келу процестері тән.</p>
-      </div>
-      <div id="analyticalText2"></div>
-    </div>
-
-    <div class="reading-block">
-      <div class="sticky-text">
-        <h3>Мәтін 3</h3>
-        <p>Хромосомалар - ядроның ең маңызды органоиды. Оның құрамында ДНҚ мен негізгі ақуыз - гистон болады; гистонда көп мөлшерлі лизин мен аргинин болады. Гистонның бұл екі заттық комплексі хромосоманың шамасы 90%-тін құрады.</p>
-        <p>Хромосоманың құрамына және де РНҚ, қышқыл ақуыздар, липидтер, минералды заттар және ДНҚ-ның репрадукциясында (екі еселенуіне) қажетті ДНҚ-полимераза ферменті кіреді.</p>
-        <p>Хромосомалардың ұзындығы ядроның диаметрінен ондаған және жүздеген есе артық болуы ықтимал. Интерфазада хромосомалар тек қана электрондық микроскоп арқылы және ұзын жіңішке жіпшелер - хроматин (хромосомалардың спиральсыздану күйі) болып саналады. Бұл кезеңде хромосомалардың екі еселену (редупликация) процесі жүреді; интерфазанын соңында хромосоманың әрқайсысы екі хроматидтерден тұрады.</p>
-      </div>
-      <div id="analyticalText3"></div>
-    </div>
-  </section>
-
-  <section id="english" class="card locked">
+<section id="english" class="card">
+  <div class="section-title">
     <h2>Part 3. Ағылшын тілі</h2>
-    <p>Бұл бөлім кейін қосылады.</p>
-  </section>
-
-  <div class="card">
-    <button onclick="checkAnswers()">Нәтижені көру / Показать результат</button>
+    <p>Listening, Lexico-Grammar және Reading бойынша дұрыс жауапты таңдаңыз.</p>
   </div>
 
-  <div id="results"></div>
+  <h2>Listening 1</h2>
+  <audio controls controlsList="nodownload">
+    <source src="TEXT%2033%20-%20АУДИО.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div id="engListening1"></div>
 
-  <div class="footer">
-    © Focus Masters KT preparation
+  <h2>Listening 2</h2>
+  <audio controls controlsList="nodownload">
+    <source src="TEXT%2034%20-%20АУДИО.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div id="engListening2"></div>
+
+  <div class="section-title">
+    <h2>Lexico-Grammar Test</h2>
+    <p>Дұрыс грамматикалық немесе лексикалық нұсқаны таңдаңыз.</p>
   </div>
+  <div id="engGrammar"></div>
+
+  <div class="section-title">
+    <h2>Reading</h2>
+    <p>Мәтінді оқып, сұрақтарға жауап беріңіз.</p>
+  </div>
+
+  <h2>Text 1. Halloween</h2>
+  <div class="text-box">
+    <p>Halloween, also referred to as All Hollows' Eve, is a holiday that's celebrated in America on 31 October of each year, regardless of what day of the week this date falls on. Although it is rooted in religion, Halloween today is enjoyed mainly because of its decorations, costumes, candy, treats, and general excitement, and furthermore, it is enjoyed by most everyone.</p>
+    <p>Before Halloween, many individuals carve a design into an orange-colored pumpkin, or a solid, durable vegetable. Once a personally satisfying design is carved, a lit candle is typically put inside a pumpkin, thereby making it a Jack-O-Lantern. At night, this design lights up against the darkness.</p>
+    <p>Besides carving pumpkins, some celebrate Halloween by putting decorations up. Supernatural figures, including vampires, ghosts, werewolves, zombies, and more, generally account for most of these decorations. Bugs, spiders, cobwebs, gravestones, and anything else that can be considered creepy can also be found on Halloween, in decoration form.</p>
+    <p>Only some adults celebrate Halloween, and they generally do so by attending parties. Inversely, the vast majority of children dress in costume and walk from door to door in search of candy — a practice known as trick or treat — on Halloween. After knocking on a door, one says, "Trick or Treat" and a piece of candy is given to him or her.</p>
+  </div>
+  <div id="engReading1"></div>
+
+  <h2>Text 2. Lost Love</h2>
+  <div class="text-box">
+    <p>These things happened to me nearly ten years ago. I lived in a city, but the city was hot in summer. I wanted to see the country. I wanted to walk in the woods and see green trees.</p>
+    <p>I had a little red car and I had a map, too. I drove all night out into the country. I was happy in my car. We had a very good summer that year. The country was very pretty in the early morning. The sun was hot, and the sky was blue. I heard the birds in the trees.</p>
+    <p>And then my car stopped suddenly. “What's wrong?” I thought. “Oh dear, I haven’t got any petrol. Now I’ll have to walk. I'll have to find a town and buy some petrol. But where am I?” I wasn’t near a town. I was lost in the country.</p>
+    <p>And then I saw the girl. She walked down the road, with flowers in her hand. She wore a long dress, and her hair was long. It was long and black. She was very pretty. I wanted to speak to her. I got out of the car.</p>
+    <p>“Hello,” I said. “I'm lost. Where am I?” She looked afraid, so I spoke quietly. “I haven't got any petrol,” I said. “Where can I find some?” Her blue eyes looked at me, and she smiled. “She's a very pretty girl!” I thought. “I do not know,” she said. “Come with me to the village. Perhaps we can help you.”</p>
+  </div>
+  <div id="engReading2"></div>
+  <div id="englishResults"></div>
+</section>
+
+<div class="card">
+  <button onclick="checkAnswers()">Нәтижені көру / Show Results</button>
+</div>
+
+<div id="results"></div>
+
+<div class="footer">
+  © Focus Masters KT preparation
+</div>
 
 </div>
 
 <script>
-const criticalQuestions = [
-  {
-    q:"1. Егер 3x - 2 ≤ 4 болса, x-тің ең үлкен бүтін мәні қандай?",
-    options:["A) 3","B) 6","C) 5","D) 4","E) 2"],
-    answer:4,
-    explanation:"3x - 2 ≤ 4 → 3x ≤ 6 → x ≤ 2. Ең үлкен бүтін мәні — 2."
-  },
-  {
-    q:"2. Егер -2 ≤ (1 - 4x) / 3 ≤ 6 болса, x-тің бола алатын ең үлкен бүтін мәні қандай?",
-    options:["A) 0","B) -1","C) 1","D) 2","E) -4"],
-    answer:2,
-    explanation:"Теңсіздікті шешкенде x мәндерінің ішіндегі ең үлкен бүтін мән — 1."
-  },
-  {
-    q:"3. Сымнан қабырғасы 16 см теңқабырғалы үшбұрыш құрастырылды. Егер осы сымды жазып, одан шаршы жасаған болса, осы шаршының ауданын табыңыз.",
-    options:["A) 100 см²","B) 144 см²","C) 256 см²","D) 16 см²","E) 81 см²"],
-    answer:1,
-    explanation:"Үшбұрыш периметрі: 16×3=48 см. Шаршының қабырғасы: 48÷4=12 см. Ауданы: 12²=144 см²."
-  },
-  {
-    q:"4. (x+3)² + x + 3 = 0 теңдеуінің шешімі бола алатын санды табыңыз.",
-    options:["A) -12","B) -6","C) -4","D) -10","E) -8"],
-    answer:2,
-    explanation:"x=-4 қойсақ: (-4+3)² + (-4) + 3 = 1 - 4 + 3 = 0. Сондықтан дұрыс жауап — -4."
-  },
-  {
-    q:"5. (x+8)/2 ≤ (x+5)/2 теңсіздігінің шешімі қандай?",
-    options:["A) x=0","B) Q (рационал сандар жиыны)","C) R (нақты сандар жиыны)","D) x∈[-8; -5]","E) шешімі жоқ"],
-    answer:4,
-    explanation:"Екі жақты 2-ге көбейтеміз: x+8 ≤ x+5. 8 ≤ 5 — жалған. Сондықтан шешімі жоқ."
-  },
-  {
-    q:"6. Егер шаршының a см қабырғасы 0,9 < a < 1,2 аралығында жатса, онда периметрі қай аралықта жатады?",
-    options:["A) 3,6 < P < 4,8","B) 2,7 < P < 3,6","C) 1,8 < P < 2,4","D) 3,9 < P < 4,2","E) 4,5 < P < 6"],
-    answer:0,
-    explanation:"Шаршы периметрі P=4a. 0,9<a<1,2 болса, 3,6<P<4,8."
-  },
-  {
-    q:"7. А пунктінен В пунктіне қарай автокөлік 65 км/сағ жылдамдықпен шықты. 2 сағаттан кейін В пунктінен оған қарай 80 км/сағ жылдамдықпен мотоцикл шықты. Олар В пунктінен 240 км қашықтықта кездессе, А мен В арақашықтығын табыңыз.",
-    options:["A) 600 км","B) 565 км","C) 680 км","D) 540 км","E) 560 км"],
-    answer:1,
-    explanation:"Мотоцикл 240 км жүрген: 240÷80=3 сағат. Автокөлік 2 сағат ерте шыққан, демек 5 сағат жүрген. 65×5=325 км. Барлық қашықтық: 325+240=565 км."
-  },
-  {
-    q:"8. Үш қасқыр екі қойды 40 минутта жесе, алты қасқырдың бір қойды жейтін уақыты қандай?",
-    options:["A) 4 минут","B) 20 минут","C) 240 минут","D) 80 минут","E) 10 минут"],
-    answer:4,
-    explanation:"3 қасқыр 2 қойды 40 минутта жейді. 6 қасқыр 2 есе көп, сондықтан сол жұмысты 20 минутта бітіреді. Бір қойға 10 минут кетеді."
-  },
-  {
-    q:"9. Лабораторияда қандай да бір сұйықты 200 миллилитрлік құтыға құятын екі өлшеуіш прибор бар. A және B шамаларын салыстырыңыз.",
-    image:"IMG_0824.jpeg",
-    options:["A) Екі еселенген А шамасы В шамасына тең","B) А шамасы В шамасынан кіші","C) А шамасы В шамасынан үлкен","D) А шамасы В шамасына тең","E) А шамасы мен В шамасын салыстыруға мәлімет жеткіліксіз"],
-    answer:3,
-    explanation:"Кестедегі мәлімет бойынша A шамасы мен B шамасы тең. Сондықтан дұрыс жауап — D."
-  },
-  {
-    q:"10. Құрамында тек 0 мен 1 цифрлары бар неше төрт таңбалы сан жазуға болады?",
-    options:["A) 6","B) 9","C) 7","D) 8","E) 5"],
-    answer:3,
-    explanation:"Төрт таңбалы сан 0-ден басталмайды, сондықтан бірінші цифр тек 1 болады. Қалған 3 орынға 0 немесе 1 қоюға болады: 2³ = 8."
-  },
-  {
-    q:"11. Кестеде x және y айнымалыларының арасындағы тәуелділік көрсетілген: x: 1, 2, 3, 4, 5; y: 1, 4, 7, 10, 13. Келесі теңдеулердің қайсысы осы тәуелділікті анықтайды?",
-    options:["A) y=x+3","B) y=2x+1","C) y=2x-1","D) y=3x-2","E) y=4x-3"],
-    answer:3,
-    explanation:"Бұл y=3x-2 формуласына сәйкес келеді."
-  },
-  {
-    q:"12. Диаграммада дүкендегі тауарлар туралы кейбір деректер берілген. A және B шамаларын салыстырыңыз.",
-    image:"IMG_0827.png",
-    options:["A) 2B > A","B) 2B < A","C) B > 2A","D) B > A","E) 2B = A"],
-    answer:0,
-    explanation:"Диаграмма бойынша дұрыс салыстыру: 2B > A."
-  },
-  {
-    q:"13. Суретте көрсетілген мәліметтер бойынша сызбада көрсетілген пәтердің ауданын табыңыз.",
-    image:"IMG_0822.jpeg",
-    options:["A) 95 м²","B) 94 м²","C) 94,5 м²","D) 945 м²","E) 90 м²"],
-    answer:2,
-    explanation:"Сызбадағы өлшемдер бойынша пәтердің ауданы 94,5 м² болады."
-  },
-  {
-    q:"14. 3015^2021 дәрежесіндегі соңғы саны a, 2096^1984 дәрежесіндегі соңғы саны b. Төмендегі жауаптарды салыстырыңыз.",
-    options:["A) 4 + a = 4 + b","B) 4 + a > 4 + b","C) 4 + a = 5 + b","D) 6 + a = 4 + b","E) 3 + a < 3 + b"],
-    answer:4,
-    explanation:"3015 соңғы цифры 5, 2096 соңғы цифры 6. Сондықтан 3+5 < 3+6."
-  },
-  {
-    q:"15. 2026^1826 дәрежесіндегі соңғы саны болса, боялған бөліктің ауданы қандай?",
-    image:"IMG_0823.jpeg",
-    options:["A) 18 см²","B) 9 см²","C) 12 см²","D) 6 см²","E) 7 см²"],
-    answer:1,
-    explanation:"Суреттегі мәлімет бойынша боялған бөліктің ауданы 9 см²."
-  }
+const criticalQuestions=[
+{q:"1. Егер 3x - 2 ≤ 4 болса, x-тің ең үлкен бүтін мәні қандай?",options:["A) 3","B) 6","C) 5","D) 4","E) 2"],answer:4,explanation:"3x - 2 ≤ 4 → 3x ≤ 6 → x ≤ 2. Ең үлкен бүтін мәні — 2."},
+{q:"2. Егер -2 ≤ (1 - 4x) / 3 ≤ 6 болса, x-тің бола алатын ең үлкен бүтін мәні қандай?",options:["A) 0","B) -1","C) 1","D) 2","E) -4"],answer:2,explanation:"Теңсіздікті шешкенде x мәндерінің ішіндегі ең үлкен бүтін мән — 1."},
+{q:"3. Сымнан қабырғасы 16 см теңқабырғалы үшбұрыш құрастырылды. Егер осы сымды жазып, одан шаршы жасаған болса, осы шаршының ауданын табыңыз.",options:["A) 100 см²","B) 144 см²","C) 256 см²","D) 16 см²","E) 81 см²"],answer:1,explanation:"Үшбұрыш периметрі: 16×3=48 см. Шаршының қабырғасы: 48÷4=12 см. Ауданы: 12²=144 см²."},
+{q:"4. (x+3)² + x + 3 = 0 теңдеуінің шешімі бола алатын санды табыңыз.",options:["A) -12","B) -6","C) -4","D) -10","E) -8"],answer:2,explanation:"x=-4 қойсақ: (-4+3)² + (-4) + 3 = 1 - 4 + 3 = 0. Сондықтан дұрыс жауап — -4."},
+{q:"5. (x+8)/2 ≤ (x+5)/2 теңсіздігінің шешімі қандай?",options:["A) x=0","B) Q (рационал сандар жиыны)","C) R (нақты сандар жиыны)","D) x∈[-8; -5]","E) шешімі жоқ"],answer:4,explanation:"Екі жақты 2-ге көбейтеміз: x+8 ≤ x+5. 8 ≤ 5 — жалған. Сондықтан шешімі жоқ."},
+{q:"6. Егер шаршының a см қабырғасы 0,9 < a < 1,2 аралығында жатса, онда периметрі қай аралықта жатады?",options:["A) 3,6 < P < 4,8","B) 2,7 < P < 3,6","C) 1,8 < P < 2,4","D) 3,9 < P < 4,2","E) 4,5 < P < 6"],answer:0,explanation:"Шаршы периметрі P=4a. 0,9<a<1,2 болса, 3,6<P<4,8."},
+{q:"7. А пунктінен В пунктіне қарай автокөлік 65 км/сағ жылдамдықпен шықты. 2 сағаттан кейін В пунктінен оған қарай 80 км/сағ жылдамдықпен мотоцикл шықты. Олар В пунктінен 240 км қашықтықта кездессе, А мен В арақашықтығын табыңыз.",options:["A) 600 км","B) 565 км","C) 680 км","D) 540 км","E) 560 км"],answer:1,explanation:"Мотоцикл 240 км жүрген: 240÷80=3 сағат. Автокөлік 2 сағат ерте шыққан, демек 5 сағат жүрген. 65×5=325 км. Барлық қашықтық: 325+240=565 км."},
+{q:"8. Үш қасқыр екі қойды 40 минутта жесе, алты қасқырдың бір қойды жейтін уақыты қандай?",options:["A) 4 минут","B) 20 минут","C) 240 минут","D) 80 минут","E) 10 минут"],answer:4,explanation:"3 қасқыр 2 қойды 40 минутта жейді. 6 қасқыр 2 есе көп, сондықтан сол жұмысты 20 минутта бітіреді. Бір қойға 10 минут кетеді."},
+{q:"9. Лабораторияда қандай да бір сұйықты 200 миллилитрлік құтыға құятын екі өлшеуіш прибор бар. A және B шамаларын салыстырыңыз.",image:"IMG_0824.jpeg",options:["A) Екі еселенген А шамасы В шамасына тең","B) А шамасы В шамасынан кіші","C) А шамасы В шамасынан үлкен","D) А шамасы В шамасына тең","E) А шамасы мен В шамасын салыстыруға мәлімет жеткіліксіз"],answer:3,explanation:"Кестедегі мәлімет бойынша A шамасы мен B шамасы тең. Сондықтан дұрыс жауап — D."},
+{q:"10. Құрамында тек 0 мен 1 цифрлары бар неше төрт таңбалы сан жазуға болады?",options:["A) 6","B) 9","C) 7","D) 8","E) 5"],answer:3,explanation:"Төрт таңбалы сан 0-ден басталмайды, сондықтан бірінші цифр тек 1 болады. Қалған 3 орынға 0 немесе 1 қоюға болады: 2³ = 8."},
+{q:"11. Кестеде x және y айнымалыларының арасындағы тәуелділік көрсетілген: x: 1, 2, 3, 4, 5; y: 1, 4, 7, 10, 13. Келесі теңдеулердің қайсысы осы тәуелділікті анықтайды?",options:["A) y=x+3","B) y=2x+1","C) y=2x-1","D) y=3x-2","E) y=4x-3"],answer:3,explanation:"Бұл y=3x-2 формуласына сәйкес келеді."},
+{q:"12. Диаграммада дүкендегі тауарлар туралы кейбір деректер берілген. A және B шамаларын салыстырыңыз.",image:"IMG_0827.png",options:["A) 2B > A","B) 2B < A","C) B > 2A","D) B > A","E) 2B = A"],answer:0,explanation:"Диаграмма бойынша дұрыс салыстыру: 2B > A."},
+{q:"13. Суретте көрсетілген мәліметтер бойынша сызбада көрсетілген пәтердің ауданын табыңыз.",image:"IMG_0822.jpeg",options:["A) 95 м²","B) 94 м²","C) 94,5 м²","D) 945 м²","E) 90 м²"],answer:2,explanation:"Сызбадағы өлшемдер бойынша пәтердің ауданы 94,5 м² болады."},
+{q:"14. 3015^2021 дәрежесіндегі соңғы саны a, 2096^1984 дәрежесіндегі соңғы саны b. Төмендегі жауаптарды салыстырыңыз.",options:["A) 4 + a = 4 + b","B) 4 + a > 4 + b","C) 4 + a = 5 + b","D) 6 + a = 4 + b","E) 3 + a < 3 + b"],answer:4,explanation:"3015 соңғы цифры 5, 2096 соңғы цифры 6. Сондықтан 3+5 < 3+6."},
+{q:"15. 2026^1826 дәрежесіндегі соңғы саны болса, боялған бөліктің ауданы қандай?",image:"IMG_0823.jpeg",options:["A) 18 см²","B) 9 см²","C) 12 см²","D) 6 см²","E) 7 см²"],answer:1,explanation:"Суреттегі мәлімет бойынша боялған бөліктің ауданы 9 см²."}
 ];
 
-const analyticalIntroQuestions = [
-  {
-    q:"16. Сөйлемді мағынасына сай толықтырыңыз. Математика әлдеқашан дүниені танудың … жақтарын зерттейтін физика, химия, биология, астрономия сияқты ғылымдардың күнделікті қолданатын зерттеу құралына айналғаны қазіргі кезде еш дау тудырмас ақиқатқа айналып отыр.",
-    options:["A) сапалық","B) жинақылық","C) тұтас","D) салалық","E) беймәлім"],
-    answer:0,
-    explanation:"Мағынасына сай дұрыс сөз — сапалық."
-  },
-  {
-    q:"17. Сөйлемді мағынасы жуық сөз тіркестерімен аяқтаңыз. Өзеннің ар жағына өтсе, [...].",
-    options:["A) қауіптен құтылады","B) арман мен мақсат","C) асыр салмай","D) бақыт белесі","E) құрышы қанбастан"],
-    answer:0,
-    explanation:"Өзеннің ар жағына өтсе, қауіптен құтылады деген мағына сәйкес келеді."
-  },
-  {
-    q:"18. Мәтіндегі бос орынды толтырыңыз. Аю - жыртқыш аң. Ол [...] орманда тіршілік етеді.",
-    options:["A) жақын","B) шалғай","C) алыс","D) ну","E) қысқы"],
-    answer:3,
-    explanation:"Аю ну орманда тіршілік етеді."
-  }
+const analyticalIntroQuestions=[
+{q:"16. Сөйлемді мағынасына сай толықтырыңыз. Математика әлдеқашан дүниені танудың … жақтарын зерттейтін физика, химия, биология, астрономия сияқты ғылымдардың күнделікті қолданатын зерттеу құралына айналғаны қазіргі кезде еш дау тудырмас ақиқатқа айналып отыр.",options:["A) сапалық","B) жинақылық","C) тұтас","D) салалық","E) беймәлім"],answer:0,explanation:"Мағынасына сай дұрыс сөз — сапалық."},
+{q:"17. Сөйлемді мағынасы жуық сөз тіркестерімен аяқтаңыз. Өзеннің ар жағына өтсе, [...].",options:["A) қауіптен құтылады","B) арман мен мақсат","C) асыр салмай","D) бақыт белесі","E) құрышы қанбастан"],answer:0,explanation:"Өзеннің ар жағына өтсе, қауіптен құтылады деген мағына сәйкес келеді."},
+{q:"18. Мәтіндегі бос орынды толтырыңыз. Аю - жыртқыш аң. Ол [...] орманда тіршілік етеді.",options:["A) жақын","B) шалғай","C) алыс","D) ну","E) қысқы"],answer:3,explanation:"Аю ну орманда тіршілік етеді."}
 ];
 
-const analyticalText1Questions = [
-  {
-    q:"19. «Ұлғайды» сөзіне мағынасы жақын сөзді табыңыз.",
-    options:["A) өндірді","B) жайылды","C) ұласты","D) ұқсатты","E) көбейді"],
-    answer:4,
-    explanation:"Ұлғайды = көбейді."
-  },
-  {
-    q:"20. Берілген мәтіннің мақсатын анықтаңыз.",
-    options:["A) Әлеуметтік-экономикалық өзгерістерді және оның тілге әсерін көрсету","B) Қалам қайраткерлерінің жұмысын қазақ халқына таныту","C) Тіл саясатын жоғары деңгейде көрсету","D) Оқу-білім мәселесінің дамуын көздері арқылы көрсету","E) Тілді дәуірлеудің қағидаттарын қайта айқындау"],
-    answer:0,
-    explanation:"Мәтінде қоғамдағы өзгерістер мен оның тіл дамуына әсері көрсетілген."
-  },
-  {
-    q:"21. Берілген мәтінге сәйкес тақырыпты таңдаңыз.",
-    options:["A) Діни оқу","B) Кітап бастыру ісі","C) Тіл мен қоғам ықпалдастығы","D) Тілдің даму кезеңдері","E) Тіл саясаты"],
-    answer:2,
-    explanation:"Мәтіннің негізгі тақырыбы — тіл мен қоғамның өзара ықпалы."
-  },
-  {
-    q:"22. «Ақырғы» сөзіне мағынасы жақын сөзді табыңыз.",
-    options:["A) бастапқы","B) алғашқы","C) соңғы","D) ортаңғы","E) бірінші"],
-    answer:2,
-    explanation:"Ақырғы = соңғы."
-  },
-  {
-    q:"23. Берілген мәтіннің мақсатын анықтаңыз.",
-    options:["A) жаратылыстану ғылымындағы жетістіктер туралы","B) жаратылыстану ғылымының зерттелуі туралы","C) жаратылыстану ғылымы туралы түсінік","D) математикалық амалдармен оқытылатын ғылым туралы","E) жаратылыстану ғылымының шығу тарихынан шолу"],
-    answer:2,
-    explanation:"Берілген жауап кілті бойынша дұрыс жауап — C."
-  },
-  {
-    q:"24. Берілген мәтінге сәйкес тақырыпты таңдаңыз.",
-    options:["A) Жаратылыс","B) Дәл ғылымдар","C) Зерттелім","D) Ғалымдар","E) Жаратылыс заңы"],
-    answer:1,
-    explanation:"Берілген жауап кілті бойынша дұрыс жауап — B."
-  }
+const analyticalText1Questions=[
+{q:"19. «Ұлғайды» сөзіне мағынасы жақын сөзді табыңыз.",options:["A) өндірді","B) жайылды","C) ұласты","D) ұқсатты","E) көбейді"],answer:4,explanation:"Ұлғайды = көбейді."},
+{q:"20. Берілген мәтіннің мақсатын анықтаңыз.",options:["A) Әлеуметтік-экономикалық өзгерістерді және оның тілге әсерін көрсету","B) Қалам қайраткерлерінің жұмысын қазақ халқына таныту","C) Тіл саясатын жоғары деңгейде көрсету","D) Оқу-білім мәселесінің дамуын көздері арқылы көрсету","E) Тілді дәуірлеудің қағидаттарын қайта айқындау"],answer:0,explanation:"Мәтінде қоғамдағы өзгерістер мен оның тіл дамуына әсері көрсетілген."},
+{q:"21. Берілген мәтінге сәйкес тақырыпты таңдаңыз.",options:["A) Діни оқу","B) Кітап бастыру ісі","C) Тіл мен қоғам ықпалдастығы","D) Тілдің даму кезеңдері","E) Тіл саясаты"],answer:2,explanation:"Мәтіннің негізгі тақырыбы — тіл мен қоғамның өзара ықпалы."},
+{q:"22. «Ақырғы» сөзіне мағынасы жақын сөзді табыңыз.",options:["A) бастапқы","B) алғашқы","C) соңғы","D) ортаңғы","E) бірінші"],answer:2,explanation:"Ақырғы = соңғы."},
+{q:"23. Берілген мәтіннің мақсатын анықтаңыз.",options:["A) жаратылыстану ғылымындағы жетістіктер туралы","B) жаратылыстану ғылымының зерттелуі туралы","C) жаратылыстану ғылымы туралы түсінік","D) математикалық амалдармен оқытылатын ғылым туралы","E) жаратылыстану ғылымының шығу тарихынан шолу"],answer:2,explanation:"Дұрыс жауап — C."},
+{q:"24. Берілген мәтінге сәйкес тақырыпты таңдаңыз.",options:["A) Жаратылыс","B) Дәл ғылымдар","C) Зерттелім","D) Ғалымдар","E) Жаратылыс заңы"],answer:1,explanation:"Дұрыс жауап — B."}
 ];
 
-const analyticalText2Questions = [
-  {
-    q:"25. Мәтінге сәйкес ақпаратты табыңыз.",
-    options:["A) Тірі және өлі жүйелердің ерекшелігі туралы","B) Математикалық аксиомалар туралы","C) Сыртқы ортамен қатынас жайлы","D) Ақпарат алмасу процестері жайлы","E) Тірі жүйенің түрлері туралы"],
-    answer:0,
-    explanation:"Мәтінде тірі және тірі емес жүйелердің ерекшелігі туралы айтылған."
-  },
-  {
-    q:"26. Мәтіндегі мәліметтің ақпарат көзін анықтаңыз.",
-    options:["A) Мәтін көркем шығармадан үзінді","B) Мәтін оқу құралынан үзінді","C) Мәтін түсіндірме сөздіктен үзінді","D) Екі тілді аударма сөздіктен үзінді","E) Мәтін синонимдер сөздігінен үзінді"],
-    answer:2,
-    explanation:"Жүйе ұғымына анықтама берілгендіктен, бұл түсіндірме сөздікке жақын."
-  },
-  {
-    q:"27. Фактіге сәйкес келетін жауап.",
-    options:["A) Сандық жүйе қатынасы","B) Тірі жүйедегі үдерістер","C) Жүйе түрлері","D) Биологиялық категориялар","E) Өзін-өзі өндіруші процесс"],
-    answer:4,
-    explanation:"Мәтінде тірі жүйелерге өзін-өзі өндіру процесі тән екені айтылған."
-  }
+const analyticalText2Questions=[
+{q:"25. Мәтінге сәйкес ақпаратты табыңыз.",options:["A) Тірі және өлі жүйелердің ерекшелігі туралы","B) Математикалық аксиомалар туралы","C) Сыртқы ортамен қатынас жайлы","D) Ақпарат алмасу процестері жайлы","E) Тірі жүйенің түрлері туралы"],answer:0,explanation:"Мәтінде тірі және тірі емес жүйелердің ерекшелігі туралы айтылған."},
+{q:"26. Мәтіндегі мәліметтің ақпарат көзін анықтаңыз.",options:["A) Мәтін көркем шығармадан үзінді","B) Мәтін оқу құралынан үзінді","C) Мәтін түсіндірме сөздіктен үзінді","D) Екі тілді аударма сөздіктен үзінді","E) Мәтін синонимдер сөздігінен үзінді"],answer:2,explanation:"Жүйе ұғымына анықтама берілгендіктен, бұл түсіндірме сөздікке жақын."},
+{q:"27. Фактіге сәйкес келетін жауап.",options:["A) Сандық жүйе қатынасы","B) Тірі жүйедегі үдерістер","C) Жүйе түрлері","D) Биологиялық категориялар","E) Өзін-өзі өндіруші процесс"],answer:4,explanation:"Мәтінде тірі жүйелерге өзін-өзі өндіру процесі тән екені айтылған."}
 ];
 
-const analyticalText3Questions = [
-  {
-    q:"28. Мәтіндегі мәліметтің ақпарат көзін анықтаңыз.",
-    options:["A) Мәтін драмалық шығармадан проза жанрынан үзінді","B) Мәтін антонимдер сөздігінен үзінді","C) Мәтін көркем шығармадан үзінді","D) Екі тілді аударма сөздіктен үзінді","E) Мәтін оқу құралынан үзінді"],
-    answer:4,
-    explanation:"Мәтін ғылыми-оқулық сипатта берілген, сондықтан оқу құралынан үзінді."
-  },
-  {
-    q:"29. Фактіге сәйкес келетін жауап.",
-    options:["A) Лизин мен аргинин","B) Ядро","C) Екі заттық комплекс","D) Хромосома","E) Хроматин"],
-    answer:3,
-    explanation:"Мәтіннің негізгі нысаны — хромосома."
-  },
-  {
-    q:"30. Мәтінге сәйкес ақпаратты табыңыз.",
-    options:["A) Хромосомалардың екі еселенуі туралы","B) Минералды заттардың маңыздылығы туралы","C) Хромосоманың құрылымы жөнінде","D) Екі хроматидтің бөлінуі жайлы","E) Полимераза ферментінің пайда болу жолдарын зерттеу туралы"],
-    answer:2,
-    explanation:"Мәтінде хромосоманың құрамы мен құрылымы туралы айтылған."
-  }
+const analyticalText3Questions=[
+{q:"28. Мәтіндегі мәліметтің ақпарат көзін анықтаңыз.",options:["A) Мәтін драмалық шығармадан проза жанрынан үзінді","B) Мәтін антонимдер сөздігінен үзінді","C) Мәтін көркем шығармадан үзінді","D) Екі тілді аударма сөздіктен үзінді","E) Мәтін оқу құралынан үзінді"],answer:4,explanation:"Мәтін ғылыми-оқулық сипатта берілген, сондықтан оқу құралынан үзінді."},
+{q:"29. Фактіге сәйкес келетін жауап.",options:["A) Лизин мен аргинин","B) Ядро","C) Екі заттық комплекс","D) Хромосома","E) Хроматин"],answer:3,explanation:"Мәтіннің негізгі нысаны — хромосома."},
+{q:"30. Мәтінге сәйкес ақпаратты табыңыз.",options:["A) Хромосомалардың екі еселенуі туралы","B) Минералды заттардың маңыздылығы туралы","C) Хромосоманың құрылымы жөнінде","D) Екі хроматидтің бөлінуі жайлы","E) Полимераза ферментінің пайда болу жолдарын зерттеу туралы"],answer:2,explanation:"Мәтінде хромосоманың құрамы мен құрылымы туралы айтылған."}
+];
+
+const englishQuestions=[
+{section:"Listening",part:"engListening1",q:"1. He made maps ____.",options:["A) because they help the loggers","B) to help campers","C) to show where Canada’s biggest trees are located","D) because he works for the government"],answer:2,explanation:"Дұрыс жауап — C."},
+{section:"Listening",part:"engListening1",q:"2. The loggers wanted ____.",options:["A) to cut it down","B) to save the tree","C) to take pictures of the tree","D) to measure the tree to find out how tall it was"],answer:0,explanation:"Дұрыс жауап — A."},
+{section:"Listening",part:"engListening1",q:"3. Randy made a path to the tallest tree in Canada because ____.",options:["A) he needed the path to get home","B) he wanted more people to see it","C) he could visit the tree more easily","D) he wanted to help the loggers get to the tree"],answer:1,explanation:"Дұрыс жауап — B."},
+{section:"Listening",part:"engListening1",q:"4. The phrase “filled with awe” means ____.",options:["A) to be not interested","B) to be curious","C) to be amazed","D) to want money"],answer:2,explanation:"Filled with awe = to be amazed."},
+{section:"Listening",part:"engListening1",q:"5. What happened to the forest where Randy found Canada's tallest tree?",options:["A) The loggers might cut it down in the future","B) No one knows. It is a mystery","C) The loggers cut it down","D) It became a park"],answer:3,explanation:"Дұрыс жауап — D."},
+{section:"Listening",part:"engListening1",q:"6. The man’s name is ____.",options:["A) Harry","B) Randy","C) Rorry","D) Harret"],answer:1,explanation:"Аудиода адамның аты Randy."},
+{section:"Listening",part:"engListening1",q:"7. The tall tree on Vancouver Island was said to be ____ feet tall.",options:["A) 340","B) 3014","C) 314","D) 3040"],answer:2,explanation:"Дұрыс жауап — 314 feet."},
+{section:"Listening",part:"engListening1",q:"8. Randy liked ____.",options:["A) to cut trees","B) to buy","C) to hunt trees","D) to take pictures of the tree"],answer:2,explanation:"Randy liked to hunt trees."},
+
+{section:"Listening",part:"engListening2",q:"9. The article gives the advice to help recently divorced Portuguese men to do ____.",options:["A) housework","B) sport","C) morning exercises","D) washing-up"],answer:0,explanation:"Дұрыс жауап — housework."},
+{section:"Listening",part:"engListening2",q:"10. On the website they can find out how to clean a stain from a white ____.",options:["A) skirt","B) shirt","C) trousers","D) cap"],answer:1,explanation:"Дұрыс жауап — shirt."},
+{section:"Listening",part:"engListening2",q:"11. Thousands of men have to iron their ____.",options:["A) shirt","B) trousers","C) clothes","D) wives"],answer:2,explanation:"Дұрыс жауап — clothes."},
+{section:"Listening",part:"engListening2",q:"12. According to the text you should ____ your bed sheets once a week.",options:["A) get","B) change","C) buy","D) wash"],answer:1,explanation:"Дұрыс жауап — change."},
+{section:"Listening",part:"engListening2",q:"13. The article is telling about ____.",options:["A) divorced men","B) divorced women","C) children","D) European Union"],answer:0,explanation:"Негізгі тақырып — divorced men."},
+{section:"Listening",part:"engListening2",q:"14. The website is called ____.",options:["A) Portugal","B) Vida-On","C) Oliveira","D) European Union"],answer:1,explanation:"Сайттың атауы — Vida-On."},
+{section:"Listening",part:"engListening2",q:"15. Besides housework tips the site helps to ____.",options:["A) find a partner","B) get a job","C) make bed","D) start to date again"],answer:3,explanation:"Дұрыс жауап — start to date again."},
+{section:"Listening",part:"engListening2",q:"16. According to the text men in ____ do less work around the house than in any other European Union country.",options:["A) Europe","B) Germany","C) Portugal","D) Kazakhstan"],answer:2,explanation:"Дұрыс жауап — Portugal."},
+
+{section:"Grammar",part:"engGrammar",q:"17. I saw him ____ down the street.",options:["A) walked","B) was walk","C) was walking","D) walking"],answer:3,explanation:"See someone doing something: I saw him walking."},
+{section:"Grammar",part:"engGrammar",q:"18. ____ by all his friends, he decided to become a monk.",options:["A) Reject","B) Is rejecting","C) Rejected","D) To reject"],answer:2,explanation:"Past participle керек: Rejected."},
+{section:"Grammar",part:"engGrammar",q:"19. ____ Panama Canal joins ____ Atlantic Ocean and ____ Pacific Ocean.",options:["A) - / - / the","B) - / - / -","C) The / the / the","D) - / the / the"],answer:2,explanation:"The Panama Canal, the Atlantic Ocean, the Pacific Ocean."},
+{section:"Grammar",part:"engGrammar",q:"20. They ____ the film yet.",options:["A) hasn't seen","B) doesn't study","C) didn't seen","D) haven't seen"],answer:3,explanation:"Yet сөзі Present Perfect-пен қолданылады."},
+{section:"Grammar",part:"engGrammar",q:"21. I ____ when my friend called.",options:["A) slept","B) had slept","C) am sleeping","D) was sleeping"],answer:3,explanation:"Past Continuous: was sleeping."},
+{section:"Grammar",part:"engGrammar",q:"22. I think your glasses are in ____ kitchen.",options:["A) the","B) -","C) an","D) a"],answer:0,explanation:"Нақты бөлме: the kitchen."},
+{section:"Grammar",part:"engGrammar",q:"23. This house is quite old. It ____ over 100 years ago.",options:["A) is being built","B) built","C) was building","D) was built"],answer:3,explanation:"Past Passive: was built."},
+{section:"Grammar",part:"engGrammar",q:"24. I ____ agree with you.",options:["A) very","B) fluently","C) briefly","D) totally"],answer:3,explanation:"Тұрақты тіркес: totally agree."},
+{section:"Grammar",part:"engGrammar",q:"25. ____ wanted to go skiing over the winter break.",options:["A) them","B) We","C) Me","D) Us"],answer:1,explanation:"Бастауыш керек: We."},
+{section:"Grammar",part:"engGrammar",q:"26. She ____ fell off the edge of the platform because she went too ____ to it.",options:["A) nearly, nearly","B) near, near","C) nearly, near","D) near, nearly"],answer:2,explanation:"Nearly = almost, near = жақын."},
+{section:"Grammar",part:"engGrammar",q:"27. You can get to ____ Heathrow Airport by underground.",options:["A) the","B) a","C) an","D) -"],answer:3,explanation:"Heathrow Airport article-сыз қолданылады."},
+{section:"Grammar",part:"engGrammar",q:"28. Complete the sentence. Let's go out. It ____ now.",options:["A) aren't raining","B) doesn't rain","C) don't rain","D) isn't raining"],answer:3,explanation:"Now → Present Continuous: isn't raining."},
+{section:"Grammar",part:"engGrammar",q:"29. Kate was listening to ____.",options:["A) musics","B) music","C) a music","D) music’s"],answer:1,explanation:"Music — саналмайтын зат есім."},
+{section:"Grammar",part:"engGrammar",q:"30. I am tired. I ____ all night.",options:["A) ‘ve been working","B) has worked","C) ‘ve just worked","D) has been working"],answer:0,explanation:"I have been working."},
+{section:"Grammar",part:"engGrammar",q:"31. He’d love ____ on his own, but he simply can't afford ____ his own flat.",options:["A) live / to be having","B) to live / to have","C) living / having","D) having lived / have"],answer:1,explanation:"Would love to live; afford to have."},
+{section:"Grammar",part:"engGrammar",q:"32. A: He always helps his mom with chores. B: ____",options:["A) What good boy he is!","B) What a good boy!","C) What is a good boy!","D) What good a boy!"],answer:1,explanation:"Дұрыс лепті сөйлем: What a good boy!"},
+{section:"Grammar",part:"engGrammar",q:"33. Cheese ____ from milk.",options:["A) is produced","B) produces","C) are being produced","D) are produced"],answer:0,explanation:"Cheese жекеше, passive voice: is produced."},
+{section:"Grammar",part:"engGrammar",q:"34. His wish that everybody ____ in the work was reasonable.",options:["A) took part","B) take part","C) shall take part","D) should take part"],answer:3,explanation:"Дұрыс жауап — should take part."},
+
+{section:"Reading",part:"engReading1",q:"35. When does Halloween take place?",options:["A) 14 February","B) 25 December","C) 31 October","D) Eight weeks before Christmas"],answer:2,explanation:"Мәтінде 31 October деп жазылған."},
+{section:"Reading",part:"engReading1",q:"36. What day of the week does Halloween fall on?",options:["A) Halloween is always on Saturday","B) Halloween is always on Friday","C) Halloween is always on Monday","D) Halloween's day of the week varies by year"],answer:3,explanation:"31 October әр жылы әртүрлі апта күніне түсуі мүмкін."},
+{section:"Reading",part:"engReading1",q:"37. How do most children celebrate Halloween?",options:["A) By dressing in costume and trick-or-treating","B) By studying schoolwork","C) By hanging ornaments on a Christmas tree","D) By producing candies"],answer:0,explanation:"Мәтінде балалар costume киіп, trick-or-treating жасайтыны айтылған."},
+{section:"Reading",part:"engReading1",q:"38. Halloween is celebrated in America on ____ of each year.",options:["A) 31 September","B) 11 October","C) 31 October","D) 21 September"],answer:2,explanation:"Дұрыс жауап — 31 October."},
+{section:"Reading",part:"engReading1",q:"39. Before Halloween, many individuals carve a design into an orange-colored ____.",options:["A) apple","B) cabbage","C) tomato","D) pumpkin"],answer:3,explanation:"Мәтінде orange-colored pumpkin делінген."},
+{section:"Reading",part:"engReading1",q:"40. One can expect to see all of the following types of decorations on Halloween except:",options:["A) Spiders and other bugs","B) Snowflakes and ribbons","C) Gravestones and zombies","D) Vampires"],answer:1,explanation:"Snowflakes and ribbons мәтінде жоқ."},
+{section:"Reading",part:"engReading1",q:"41. Some adults celebrate Halloween in which of the following ways?",options:["A) Trick-or-treating","B) Going to bed early","C) Attending Halloween parties","D) Buying Christmas gifts"],answer:2,explanation:"Мәтінде adults attend parties деп айтылған."},
+{section:"Reading",part:"engReading1",q:"42. Before Halloween, many individuals carve a design into an ____-colored pumpkin.",options:["A) red","B) black","C) orange","D) blue"],answer:2,explanation:"Pumpkin orange-colored."},
+
+{section:"Reading",part:"engReading2",q:"43. Suddenly the man saw the ____ who walked down the road, with flowers in her hand.",options:["A) woman","B) car","C) girl","D) bird"],answer:2,explanation:"Мәтінде: I saw the girl."},
+{section:"Reading",part:"engReading2",q:"44. The girl was very ____.",options:["A) angry","B) nice","C) dumb","D) better"],answer:1,explanation:"Мәтінде very pretty, берілгендер ішінде жақыны — nice."},
+{section:"Reading",part:"engReading2",q:"45. The city was hot in summer so he ____ to see the country.",options:["A) waited","B) dislike","C) hated","D) had a desire"],answer:3,explanation:"Wanted = had a desire."},
+{section:"Reading",part:"engReading2",q:"46. And then his ____ stopped suddenly.",options:["A) car","B) legs","C) shoes","D) bike"],answer:0,explanation:"Мәтінде my car stopped suddenly."},
+{section:"Reading",part:"engReading2",q:"47. When he asked for some ____, she smiled and said him to come with her to the village.",options:["A) water","B) advice","C) flower","D) petrol"],answer:3,explanation:"Ол petrol сұрады."},
+{section:"Reading",part:"engReading2",q:"48. The city was hot in summer so he wanted to see the ____.",options:["A) town","B) country","C) city","D) the girl"],answer:1,explanation:"I wanted to see the country."},
+{section:"Reading",part:"engReading2",q:"49. The sun was ____, and the sky was blue.",options:["A) hot","B) cool","C) warm","D) cold"],answer:0,explanation:"The sun was hot."},
+{section:"Reading",part:"engReading2",q:"50. We had a very good summer that year and the country was very pretty in the ____.",options:["A) late evening","B) midnight","C) early morning","D) all day"],answer:2,explanation:"The country was very pretty in the early morning."}
 ];
 
 function renderQuiz(containerId, questions, namePrefix){
-  const container = document.getElementById(containerId);
-
-  questions.forEach((item, index) => {
-    let html = `<div class="question"><b>${item.q}</b>`;
-
+  const container=document.getElementById(containerId);
+  questions.forEach((item,index)=>{
+    let html=`<div class="question"><b>${item.q}</b>`;
     if(item.image){
-      html += `<img class="question-image" src="${item.image}" alt="Question image">`;
+      html+=`<img class="question-image" src="${item.image}" alt="Question image">`;
     }
-
-    item.options.forEach((option, optionIndex) => {
-      html += `
-        <label>
-          <input type="radio" name="${namePrefix}${index}" value="${optionIndex}">
-          ${option}
-        </label>
-      `;
+    item.options.forEach((option,optionIndex)=>{
+      html+=`<label><input type="radio" name="${namePrefix}${index}" value="${optionIndex}"> ${option}</label>`;
     });
-
-    html += `</div>`;
-    container.innerHTML += html;
+    html+=`</div>`;
+    container.innerHTML+=html;
   });
 }
 
-renderQuiz("criticalQuiz", criticalQuestions, "critical");
-renderQuiz("analyticalIntro", analyticalIntroQuestions, "analyticalIntro");
-renderQuiz("analyticalText1", analyticalText1Questions, "analyticalText1");
-renderQuiz("analyticalText2", analyticalText2Questions, "analyticalText2");
-renderQuiz("analyticalText3", analyticalText3Questions, "analyticalText3");
+function renderEnglish(){
+  englishQuestions.forEach((item,index)=>{
+    const container=document.getElementById(item.part);
+    let html=`<div class="question"><b>${item.q}</b>`;
+    item.options.forEach((option,optionIndex)=>{
+      html+=`<label><input type="radio" name="eng${index}" value="${optionIndex}"> ${option}</label>`;
+    });
+    html+=`</div>`;
+    container.innerHTML+=html;
+  });
+}
 
-function checkGroup(questions, namePrefix){
-  let score = 0;
-  let html = "";
+renderQuiz("criticalQuiz",criticalQuestions,"critical");
+renderQuiz("analyticalIntro",analyticalIntroQuestions,"analyticalIntro");
+renderQuiz("analyticalText1",analyticalText1Questions,"analyticalText1");
+renderQuiz("analyticalText2",analyticalText2Questions,"analyticalText2");
+renderQuiz("analyticalText3",analyticalText3Questions,"analyticalText3");
+renderEnglish();
 
-  questions.forEach((item, index) => {
-    const selected = document.querySelector(`input[name="${namePrefix}${index}"]:checked`);
-    const userAnswer = selected ? Number(selected.value) : null;
+function checkGroup(questions,namePrefix){
+  let score=0;
+  let html="";
+  questions.forEach((item,index)=>{
+    const selected=document.querySelector(`input[name="${namePrefix}${index}"]:checked`);
+    const userAnswer=selected?Number(selected.value):null;
 
-    if(userAnswer === item.answer){
+    if(userAnswer===item.answer){
       score++;
-      html += `<p class="correct">✔ ${item.q}</p>`;
-    } else {
-      html += `<p class="wrong">✘ ${item.q}</p>`;
+      html+=`<p class="correct">✔ ${item.q}</p>`;
+    }else{
+      html+=`<p class="wrong">✘ ${item.q}</p>`;
     }
 
-    html += `
+    html+=`
       <div class="explanation">
         <b>Дұрыс жауап:</b> ${item.options[item.answer]}<br>
-        <b>Сіздің жауабыңыз:</b> ${userAnswer !== null ? item.options[userAnswer] : "Жауап берілмеді"}<br>
+        <b>Сіздің жауабыңыз:</b> ${userAnswer!==null?item.options[userAnswer]:"Жауап берілмеді"}<br>
+        <b>Түсіндірме:</b> ${item.explanation}
+      </div>
+    `;
+  });
+  return {score,html};
+}
+
+function checkEnglish(){
+  let score=0;
+  let listening=0;
+  let grammar=0;
+  let reading=0;
+  let html="";
+
+  englishQuestions.forEach((item,index)=>{
+    const selected=document.querySelector(`input[name="eng${index}"]:checked`);
+    const userAnswer=selected?Number(selected.value):null;
+
+    if(userAnswer===item.answer){
+      score++;
+      if(item.section==="Listening") listening++;
+      if(item.section==="Grammar") grammar++;
+      if(item.section==="Reading") reading++;
+      html+=`<p class="correct">✔ ${item.q}</p>`;
+    }else{
+      html+=`<p class="wrong">✘ ${item.q}</p>`;
+    }
+
+    html+=`
+      <div class="explanation">
+        <b>Дұрыс жауап:</b> ${item.options[item.answer]}<br>
+        <b>Сіздің жауабыңыз:</b> ${userAnswer!==null?item.options[userAnswer]:"Жауап берілмеді"}<br>
         <b>Түсіндірме:</b> ${item.explanation}
       </div>
     `;
   });
 
-  return {score, html};
+  return {score,listening,grammar,reading,html};
 }
 
 function checkAnswers(){
-  const critical = checkGroup(criticalQuestions, "critical");
-  const aIntro = checkGroup(analyticalIntroQuestions, "analyticalIntro");
-  const aText1 = checkGroup(analyticalText1Questions, "analyticalText1");
-  const aText2 = checkGroup(analyticalText2Questions, "analyticalText2");
-  const aText3 = checkGroup(analyticalText3Questions, "analyticalText3");
+  const critical=checkGroup(criticalQuestions,"critical");
+  const aIntro=checkGroup(analyticalIntroQuestions,"analyticalIntro");
+  const aText1=checkGroup(analyticalText1Questions,"analyticalText1");
+  const aText2=checkGroup(analyticalText2Questions,"analyticalText2");
+  const aText3=checkGroup(analyticalText3Questions,"analyticalText3");
+  const english=checkEnglish();
 
-  const analyticalScore = aIntro.score + aText1.score + aText2.score + aText3.score;
-  const totalScore = critical.score + analyticalScore;
-  const totalQuestions = 30;
+  const analyticalScore=aIntro.score+aText1.score+aText2.score+aText3.score;
+  const totalScore=critical.score+analyticalScore+english.score;
+  const totalQuestions=80;
 
-  let level = "";
-  let message = "";
+  let level="";
+  let messageKaz="";
+  let messageRus="";
 
-  if(totalScore <= 10){
-    level = "Бастапқы деңгей";
-    message = "Сізге әлі көбірек дайындық керек.";
-  } else if(totalScore <= 22){
-    level = "Орташа деңгей";
-    message = "Негізгі түсінік бар, бірақ қосымша практика қажет.";
-  } else {
-    level = "Жақсы дайындық";
-    message = "Нәтижеңіз жақсы. Енді тұрақты қайталау маңызды.";
+  if(totalScore<=30){
+    level="Бастапқы деңгей / Начальный уровень";
+    messageKaz="Сізге әлі көбірек дайындық керек.";
+    messageRus="Вам нужно ещё больше подготовиться.";
+  }else if(totalScore<=60){
+    level="Орташа деңгей / Средний уровень";
+    messageKaz="Негізгі түсінік бар, бірақ қосымша практика қажет.";
+    messageRus="Базовое понимание есть, но нужна дополнительная практика.";
+  }else{
+    level="Жақсы дайындық / Хорошая готовность";
+    messageKaz="Нәтижеңіз жақсы. Енді тұрақты қайталау маңызды.";
+    messageRus="Результат хороший. Теперь важно регулярно повторять.";
   }
 
-  const finalBlock = `
+  const finalBlock=`
     <div class="result-box">
       <h2>Жалпы нәтижеңіз: ${totalScore}/${totalQuestions}</h2>
       <h2>${level}</h2>
-      <p>${message}</p>
+      <p>${messageKaz}</p>
+      <p>${messageRus}</p>
 
       <div class="score-grid">
         <div class="score-item">Сыни ойлау: ${critical.score}/15</div>
         <div class="score-item">Аналитикалық ойлау: ${analyticalScore}/15</div>
+        <div class="score-item">Ағылшын тілі: ${english.score}/50</div>
+        <div class="score-item">Listening: ${english.listening}/16</div>
+        <div class="score-item">Grammar: ${english.grammar}/18</div>
+        <div class="score-item">Reading: ${english.reading}/16</div>
       </div>
     </div>
 
     <div class="contact-box">
       <h2>ҚОСЫМША ТЕГІН ТЕСТТЕР TELEGRAM-КАНАЛДА</h2>
-      <p>ТГО, ағылшын және педагогика бойынша қосымша тегін тесттер Telegram-каналда жарияланады.</p>
+      <p>Ағылшын тілі, ТГО және педагогика бойынша осындай тегін тесттер бар.</p>
       <p>Дополнительные бесплатные тесты публикуются в Telegram-канале.</p>
 
       <a class="contact-btn telegram" href="https://t.me/+8SolEPgN4Is0MTMy" target="_blank">
@@ -760,10 +710,16 @@ function checkAnswers(){
     </div>
   `;
 
-  document.getElementById("results").innerHTML =
-    finalBlock +
-    "<h2>Сыни ойлау жауаптары</h2>" + critical.html +
-    "<h2>Аналитикалық ойлау жауаптары</h2>" + aIntro.html + aText1.html + aText2.html + aText3.html;
+  document.getElementById("results").innerHTML=finalBlock;
+
+  document.getElementById("criticalResults").innerHTML=
+    "<h2>Сыни ойлау жауаптары</h2>"+critical.html;
+
+  document.getElementById("analyticalResults").innerHTML=
+    "<h2>Аналитикалық ойлау жауаптары</h2>"+aIntro.html+aText1.html+aText2.html+aText3.html;
+
+  document.getElementById("englishResults").innerHTML=
+    "<h2>Ағылшын тілі жауаптары</h2>"+english.html;
 
   document.getElementById("results").scrollIntoView({behavior:"smooth"});
 }
