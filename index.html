@@ -93,6 +93,40 @@
       background:#e3f2fd;
     }
 
+    .telegram-promo{
+      background:white;
+      border:2px solid #229ED9;
+      padding:20px;
+      border-radius:20px;
+      text-align:center;
+      margin-bottom:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .telegram-promo h2{
+      color:#1565c0;
+      margin:0 0 10px;
+      font-size:22px;
+    }
+
+    .telegram-promo p{
+      margin:8px 0;
+      line-height:1.5;
+      font-size:16px;
+    }
+
+    .promo-btn{
+      display:block;
+      text-decoration:none;
+      background:#229ED9;
+      color:white;
+      padding:14px;
+      border-radius:14px;
+      margin-top:14px;
+      font-weight:bold;
+      font-size:17px;
+    }
+
     .card{
       background:white;
       padding:22px;
@@ -304,6 +338,15 @@
         font-size:16px;
         padding:15px;
       }
+
+      .telegram-promo{
+        padding:16px;
+        border-radius:17px;
+      }
+
+      .telegram-promo h2{
+        font-size:19px;
+      }
     }
   </style>
 </head>
@@ -323,6 +366,16 @@
     <a href="#critical">Сыни ойлау</a>
     <a href="#analytical">Аналитикалық ойлау</a>
     <a href="#english">Ағылшын тілі</a>
+  </div>
+
+  <div class="telegram-promo">
+    <h2>ҚОСЫМША ТЕГІН ТЕСТТЕР TELEGRAM-КАНАЛДА</h2>
+    <p>Сыни ойлау, аналитикалық ойлау, ағылшын тілі және педагогика бойынша тегін тесттер жарияланады.</p>
+    <p>Дополнительные бесплатные тесты публикуются в Telegram-канале.</p>
+
+    <a class="promo-btn" href="https://t.me/+8SolEPgN4Is0MTMy" target="_blank">
+      Telegram-каналға кіру
+    </a>
   </div>
 
   <div class="card">
@@ -449,4 +502,142 @@ const criticalQuestions = [
   {
     section:"Critical",
     q:"11. Кестеде x және y айнымалыларының арасындағы тәуелділік көрсетілген: x: 1, 2, 3, 4, 5; y: 1, 4, 7, 10, 13. Келесі теңдеулердің қайсысы осы тәуелділікті анықтайды?",
-    options:["A) y=x+3","B) y=2x+1","C)
+    options:["A) y=x+3","B) y=2x+1","C) y=2x-1","D) y=3x-2","E) y=4x-3"],
+    answer:3,
+    explanation:"x=1 болса, y=1; x=2 болса, y=4. Бұл y=3x-2 формуласына сәйкес келеді."
+  },
+  {
+    section:"Critical",
+    q:"12. Диаграммада дүкендегі тауарлар туралы кейбір деректер берілген. A және B шамаларын салыстырыңыз.",
+    image:"IMG_0827.png",
+    options:["A) 2B > A","B) 2B < A","C) B > 2A","D) B > A","E) 2B = A"],
+    answer:0,
+    explanation:"Диаграмма бойынша дұрыс салыстыру: 2B > A."
+  },
+  {
+    section:"Critical",
+    q:"13. Суретте көрсетілген мәліметтер бойынша сызбада көрсетілген пәтердің ауданын табыңыз.",
+    image:"IMG_0822.jpeg",
+    options:["A) 95 м²","B) 94 м²","C) 94,5 м²","D) 945 м²","E) 90 м²"],
+    answer:2,
+    explanation:"Сызбадағы өлшемдер бойынша пәтердің ауданы 94,5 м² болады."
+  },
+  {
+    section:"Critical",
+    q:"14. 3015^2021 дәрежесіндегі соңғы саны a, 2096^1984 дәрежесіндегі соңғы саны b. Төмендегі жауаптарды салыстырыңыз.",
+    options:["A) 4 + a = 4 + b","B) 4 + a > 4 + b","C) 4 + a = 5 + b","D) 6 + a = 4 + b","E) 3 + a < 3 + b"],
+    answer:4,
+    explanation:"3015 санының кез келген дәрежесінің соңғы цифры 5, сондықтан a=5. 2096 санының кез келген дәрежесінің соңғы цифры 6, сондықтан b=6. 3+5 < 3+6, демек дұрыс жауап — E."
+  },
+  {
+    section:"Critical",
+    q:"15. 2026^1826 дәрежесіндегі соңғы саны болса, боялған бөліктің ауданы қандай?",
+    image:"IMG_0823.jpeg",
+    options:["A) 18 см²","B) 9 см²","C) 12 см²","D) 6 см²","E) 7 см²"],
+    answer:1,
+    explanation:"Суреттегі мәлімет бойынша боялған бөліктің ауданы 9 см²."
+  }
+];
+
+const criticalQuiz = document.getElementById("criticalQuiz");
+
+criticalQuestions.forEach((item, index) => {
+  let html = `<div class="question">
+    <b>${item.q}</b>`;
+
+  if(item.image){
+    html += `<img class="question-image" src="${item.image}" alt="Question image">`;
+  }
+
+  item.options.forEach((option, optionIndex) => {
+    html += `
+      <label>
+        <input type="radio" name="critical${index}" value="${optionIndex}">
+        ${option}
+      </label>
+    `;
+  });
+
+  html += `</div>`;
+  criticalQuiz.innerHTML += html;
+});
+
+function checkAnswers(){
+  let criticalScore = 0;
+  let resultHTML = "";
+
+  criticalQuestions.forEach((item, index) => {
+    const selected = document.querySelector(`input[name="critical${index}"]:checked`);
+    const userAnswer = selected ? Number(selected.value) : null;
+
+    if(userAnswer === item.answer){
+      criticalScore++;
+      resultHTML += `<p class="correct">✔ ${item.q}</p>`;
+    } else {
+      resultHTML += `<p class="wrong">✘ ${item.q}</p>`;
+    }
+
+    resultHTML += `
+      <div class="explanation">
+        <b>Дұрыс жауап:</b> ${item.options[item.answer]}<br>
+        <b>Сіздің жауабыңыз:</b> ${userAnswer !== null ? item.options[userAnswer] : "Жауап берілмеді"}<br>
+        <b>Түсіндірме:</b> ${item.explanation}
+      </div>
+    `;
+  });
+
+  let level = "";
+  let message = "";
+
+  if(criticalScore <= 5){
+    level = "Бастапқы деңгей";
+    message = "Сыни ойлау бойынша көбірек практика қажет.";
+  } else if(criticalScore <= 11){
+    level = "Орташа деңгей";
+    message = "Негізгі түсінік бар, бірақ толық вариантқа дайындықты жалғастыру керек.";
+  } else {
+    level = "Жақсы нәтиже";
+    message = "Нәтижеңіз жақсы. Енді қалған блоктармен толықтыру керек.";
+  }
+
+  const finalBlock = `
+    <div class="result-box">
+      <h2>Сыни ойлау нәтижеңіз: ${criticalScore}/${criticalQuestions.length}</h2>
+      <h2>${level}</h2>
+      <p>${message}</p>
+    </div>
+
+    <div class="contact-box">
+      <h2>ҚОСЫМША ТЕГІН ТЕСТТЕР TELEGRAM-КАНАЛДА</h2>
+      <p>Сыни ойлау, аналитикалық ойлау, ағылшын және педагогика бойынша қосымша тегін тесттер Telegram-каналда жарияланады.</p>
+      <p>Дополнительные бесплатные тесты публикуются в Telegram-канале.</p>
+
+      <a class="contact-btn telegram" href="https://t.me/+8SolEPgN4Is0MTMy" target="_blank">
+        Telegram-каналға кіру
+      </a>
+
+      <hr style="margin:20px 0; border:none; border-top:1px solid #ddd;">
+
+      <p><b>Жеке сұрақтарыңыз болса:</b></p>
+      <p>Если есть личные вопросы:</p>
+
+      <a class="contact-btn telegram" href="https://t.me/elnazm_ln" target="_blank">
+        Telegram-ға жазу
+      </a>
+
+      <a class="contact-btn whatsapp" href="https://wa.me/77007976745?text=Сәлеметсіз%20бе!%20КТ%20бойынша%20дайындық%20туралы%20білгім%20келеді.%0AЗдравствуйте!%20Хочу%20узнать%20о%20подготовке%20к%20КТ." target="_blank">
+        WhatsApp-қа жазу
+      </a>
+    </div>
+  `;
+
+  document.getElementById("results").innerHTML = finalBlock + resultHTML;
+
+  document.getElementById("results").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+</script>
+
+</body>
+</html>
