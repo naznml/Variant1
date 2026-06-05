@@ -11,22 +11,16 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-RQRSQ92JD8');
   </script>
 
   <style>
-    *{
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
 
     body{
       margin:0;
-      font-family:Arial, sans-serif;
+      font-family:Arial,sans-serif;
       background:linear-gradient(135deg,#e3f2fd,#f1f8e9);
       color:#1b1b1b;
     }
@@ -211,6 +205,30 @@
       background:#0d47a1;
     }
 
+    .reading-block{
+      margin-bottom:30px;
+    }
+
+    .sticky-text{
+      position:sticky;
+      top:10px;
+      z-index:5;
+      background:white;
+      border:2px solid #1565c0;
+      padding:16px;
+      border-radius:16px;
+      margin-bottom:18px;
+      max-height:42vh;
+      overflow-y:auto;
+      line-height:1.6;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .sticky-text h3{
+      margin-top:0;
+      color:#1565c0;
+    }
+
     .result-box{
       background:#e8f5e9;
       border:2px solid #43a047;
@@ -223,6 +241,20 @@
     .result-box h2{
       margin-top:0;
       color:#2e7d32;
+    }
+
+    .score-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      margin-top:15px;
+    }
+
+    .score-item{
+      background:white;
+      padding:12px;
+      border-radius:14px;
+      font-weight:bold;
     }
 
     .correct{
@@ -279,13 +311,8 @@
       font-size:17px;
     }
 
-    .telegram{
-      background:#229ED9;
-    }
-
-    .whatsapp{
-      background:#25D366;
-    }
+    .telegram{background:#229ED9;}
+    .whatsapp{background:#25D366;}
 
     .footer{
       text-align:center;
@@ -295,58 +322,20 @@
     }
 
     @media(max-width:600px){
-      .wrapper{
-        padding:12px;
-      }
-
-      .hero{
-        padding:24px 16px;
-        border-radius:18px;
-      }
-
-      .hero h1{
-        font-size:24px;
-      }
-
-      .hero p{
-        font-size:15px;
-      }
-
-      .nav-buttons{
-        grid-template-columns:1fr;
-      }
-
-      .card{
-        padding:16px;
-        border-radius:17px;
-      }
-
-      .question{
-        padding:15px;
-      }
-
-      .question b{
-        font-size:15px;
-      }
-
-      label{
-        font-size:15px;
-        padding:11px;
-      }
-
-      button{
-        font-size:16px;
-        padding:15px;
-      }
-
-      .telegram-promo{
-        padding:16px;
-        border-radius:17px;
-      }
-
-      .telegram-promo h2{
-        font-size:19px;
-      }
+      .wrapper{padding:12px;}
+      .hero{padding:24px 16px;border-radius:18px;}
+      .hero h1{font-size:24px;}
+      .hero p{font-size:15px;}
+      .nav-buttons{grid-template-columns:1fr;}
+      .card{padding:16px;border-radius:17px;}
+      .question{padding:15px;}
+      .question b{font-size:15px;}
+      label{font-size:15px;padding:11px;}
+      button{font-size:16px;padding:15px;}
+      .telegram-promo{padding:16px;border-radius:17px;}
+      .telegram-promo h2{font-size:19px;}
+      .sticky-text{max-height:40vh;top:5px;}
+      .score-grid{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -359,7 +348,7 @@
     <h1>Вариант 1 — Магистратура КТ</h1>
     <p>Міндетті блоктар бойынша дайындық тесті</p>
     <p>Сыни ойлау, аналитикалық ойлау және ағылшын тілі</p>
-    <span class="badge">Қазір: Сыни ойлау бөлімі • 15 сұрақ</span>
+    <span class="badge">30 сұрақ • Нәтиже бірден шығады</span>
   </div>
 
   <div class="nav-buttons">
@@ -383,10 +372,10 @@
     <p>Бұл сайтта толық Вариант 1 болады.</p>
     <ul>
       <li><b>Сыни ойлау:</b> 15 сұрақ</li>
-      <li><b>Аналитикалық ойлау:</b> кейін қосылады</li>
-      <li><b>Ағылшын тілі:</b> 50 сұрақ кейін қосылады</li>
+      <li><b>Аналитикалық ойлау:</b> 15 сұрақ</li>
+      <li><b>Ағылшын тілі:</b> кейін қосылады</li>
     </ul>
-    <p>Қазір бірінші кезең ретінде сыни ойлау бөлімі толық 15 сұрақпен дайын.</p>
+    <p>Барлық сұрақтарға жауап беріп, соңында нәтижені көріңіз.</p>
   </div>
 
   <section id="critical" class="card">
@@ -394,23 +383,56 @@
       <h2>Part 1. Сыни ойлау</h2>
       <p>Дұрыс жауапты таңдаңыз.</p>
     </div>
-
     <div id="criticalQuiz"></div>
-
-    <button onclick="checkAnswers()">Нәтижені көру / Показать результат</button>
   </section>
 
-  <section id="analytical" class="card locked">
-    <h2>Part 2. Аналитикалық ойлау</h2>
-    <p>Бұл бөлім кейін қосылады.</p>
-    <p>Мұнда толық мәтін жоғарыда sticky болып тұрады, сұрақтар астында жылжиды.</p>
+  <section id="analytical" class="card">
+    <div class="section-title">
+      <h2>Part 2. Аналитикалық ойлау</h2>
+      <p>Мәтінді оқып, дұрыс жауапты таңдаңыз.</p>
+    </div>
+
+    <div id="analyticalIntro"></div>
+
+    <div class="reading-block">
+      <div class="sticky-text">
+        <h3>Мәтін 1</h3>
+        <p>ХІХ ғасырдың ІІ жартысы, әсіресе, соңғы ширегі қазақ халқының әлеуметтік-экономикалық, саяси және мәдени өмірінде елеулі тарихи оқиғалар, өзгеріс-жаңалықтар мен шиеленіскен тартыстар дәуірі болды.</p>
+        <p>Тілдің белгілі бір кезеңдегі деңгейі мен даму барысына қоғам өмірінің елеулі әсер ететіні белгілі. Бұл кезеңде Қазақстанда кітап бастырудың етек ала бастауы, мерзімді баспасөздің, көпшілікке арналған жартылай ғылыми әдебиеттің пайда болуы, азаматтық оқу-білімнің қолға алынуы әдеби тілдің жазба түрін жандандырып, оның нақтылы стильдерге тарамдалу көріністерін туғызды.</p>
+        <p>Діни оқудың қазақ қауымында осы тұста едәуір жандануы араб-парсы, шағатай тілдерінің одан әрі таныс бола түсуіне, бұл тілдердің қазақ тіліне әсер етіп, ауыз-түйістің жақсаруына септігін тигізді. Сондықтан тіл саясатын, оның жай-күйін жақсы танып, тілдің арта түскен әлеуметтік қызметін дұрыс түсінген қалам қайраткерлерінің атқаратын жұмыстары ұлғайды.</p>
+      </div>
+      <div id="analyticalText1"></div>
+    </div>
+
+    <div class="reading-block">
+      <div class="sticky-text">
+        <h3>Мәтін 2</h3>
+        <p>Жүйе - кең мағынада бір-бірімен байланысып, белгілі тәртіппен орналасқан қандай да бір теорияның жиынтығы. Жүйелерді тірі және тірі емес (өлі) деп бөледі.</p>
+        <p>Тірі емес жүйелерге математикада пайдаланылатын аксиомалар және анықтамалар, сандық жүйелер, ақпараттық жүйелер жатады. Ал тірі жүйелер биологиялық категориялар болып табылады.</p>
+        <p>Тірі жүйелердің тірі емес жүйелерге қарағанда біршама ерекшеліктері болады. Маңызды ерекшелігінің бірі, тірі жүйелерде энергия, зат алмасу және ақпарат алмасу процестері жүрмесе тіршілігі тоқталады. Олар сыртқы ортамен қарым-қатынаста болады, сондықтан ашық жүйе болып саналады. Тірі жүйелерге өзін-өзі өндіру, реттеу және қайта қалпына келу процестері тән.</p>
+      </div>
+      <div id="analyticalText2"></div>
+    </div>
+
+    <div class="reading-block">
+      <div class="sticky-text">
+        <h3>Мәтін 3</h3>
+        <p>Хромосомалар - ядроның ең маңызды органоиды. Оның құрамында ДНҚ мен негізгі ақуыз - гистон болады; гистонда көп мөлшерлі лизин мен аргинин болады. Гистонның бұл екі заттық комплексі хромосоманың шамасы 90%-тін құрады.</p>
+        <p>Хромосоманың құрамына және де РНҚ, қышқыл ақуыздар, липидтер, минералды заттар және ДНҚ-ның репрадукциясында (екі еселенуіне) қажетті ДНҚ-полимераза ферменті кіреді.</p>
+        <p>Хромосомалардың ұзындығы ядроның диаметрінен ондаған және жүздеген есе артық болуы ықтимал. Интерфазада хромосомалар тек қана электрондық микроскоп арқылы және ұзын жіңішке жіпшелер - хроматин (хромосомалардың спиральсыздану күйі) болып саналады. Бұл кезеңде хромосомалардың екі еселену (редупликация) процесі жүреді; интерфазанын соңында хромосоманың әрқайсысы екі хроматидтерден тұрады.</p>
+      </div>
+      <div id="analyticalText3"></div>
+    </div>
   </section>
 
   <section id="english" class="card locked">
     <h2>Part 3. Ағылшын тілі</h2>
     <p>Бұл бөлім кейін қосылады.</p>
-    <p>Listening + Lexico-Grammar + Reading толық 50 сұрақ болады.</p>
   </section>
+
+  <div class="card">
+    <button onclick="checkAnswers()">Нәтижені көру / Показать результат</button>
+  </div>
 
   <div id="results"></div>
 
@@ -423,91 +445,73 @@
 <script>
 const criticalQuestions = [
   {
-    section:"Critical",
     q:"1. Егер 3x - 2 ≤ 4 болса, x-тің ең үлкен бүтін мәні қандай?",
     options:["A) 3","B) 6","C) 5","D) 4","E) 2"],
     answer:4,
     explanation:"3x - 2 ≤ 4 → 3x ≤ 6 → x ≤ 2. Ең үлкен бүтін мәні — 2."
   },
   {
-    section:"Critical",
     q:"2. Егер -2 ≤ (1 - 4x) / 3 ≤ 6 болса, x-тің бола алатын ең үлкен бүтін мәні қандай?",
     options:["A) 0","B) -1","C) 1","D) 2","E) -4"],
     answer:2,
     explanation:"Теңсіздікті шешкенде x мәндерінің ішіндегі ең үлкен бүтін мән — 1."
   },
   {
-    section:"Critical",
     q:"3. Сымнан қабырғасы 16 см теңқабырғалы үшбұрыш құрастырылды. Егер осы сымды жазып, одан шаршы жасаған болса, осы шаршының ауданын табыңыз.",
     options:["A) 100 см²","B) 144 см²","C) 256 см²","D) 16 см²","E) 81 см²"],
     answer:1,
     explanation:"Үшбұрыш периметрі: 16×3=48 см. Шаршының қабырғасы: 48÷4=12 см. Ауданы: 12²=144 см²."
   },
   {
-    section:"Critical",
     q:"4. (x+3)² + x + 3 = 0 теңдеуінің шешімі бола алатын санды табыңыз.",
     options:["A) -12","B) -6","C) -4","D) -10","E) -8"],
     answer:2,
     explanation:"x=-4 қойсақ: (-4+3)² + (-4) + 3 = 1 - 4 + 3 = 0. Сондықтан дұрыс жауап — -4."
   },
   {
-    section:"Critical",
     q:"5. (x+8)/2 ≤ (x+5)/2 теңсіздігінің шешімі қандай?",
     options:["A) x=0","B) Q (рационал сандар жиыны)","C) R (нақты сандар жиыны)","D) x∈[-8; -5]","E) шешімі жоқ"],
     answer:4,
     explanation:"Екі жақты 2-ге көбейтеміз: x+8 ≤ x+5. 8 ≤ 5 — жалған. Сондықтан шешімі жоқ."
   },
   {
-    section:"Critical",
     q:"6. Егер шаршының a см қабырғасы 0,9 < a < 1,2 аралығында жатса, онда периметрі қай аралықта жатады?",
     options:["A) 3,6 < P < 4,8","B) 2,7 < P < 3,6","C) 1,8 < P < 2,4","D) 3,9 < P < 4,2","E) 4,5 < P < 6"],
     answer:0,
     explanation:"Шаршы периметрі P=4a. 0,9<a<1,2 болса, 3,6<P<4,8."
   },
   {
-    section:"Critical",
     q:"7. А пунктінен В пунктіне қарай автокөлік 65 км/сағ жылдамдықпен шықты. 2 сағаттан кейін В пунктінен оған қарай 80 км/сағ жылдамдықпен мотоцикл шықты. Олар В пунктінен 240 км қашықтықта кездессе, А мен В арақашықтығын табыңыз.",
     options:["A) 600 км","B) 565 км","C) 680 км","D) 540 км","E) 560 км"],
     answer:1,
     explanation:"Мотоцикл 240 км жүрген: 240÷80=3 сағат. Автокөлік 2 сағат ерте шыққан, демек 5 сағат жүрген. 65×5=325 км. Барлық қашықтық: 325+240=565 км."
   },
   {
-    section:"Critical",
     q:"8. Үш қасқыр екі қойды 40 минутта жесе, алты қасқырдың бір қойды жейтін уақыты қандай?",
     options:["A) 4 минут","B) 20 минут","C) 240 минут","D) 80 минут","E) 10 минут"],
     answer:4,
     explanation:"3 қасқыр 2 қойды 40 минутта жейді. 6 қасқыр 2 есе көп, сондықтан сол жұмысты 20 минутта бітіреді. Бір қойға 10 минут кетеді."
   },
   {
-    section:"Critical",
-    q:"9. Лабораторияда қандай да бір сұйықты 200 миллилитрлік құтыға құятын екі өлшеуіш прибор бар. Екі прибордың қаншалықты дәл жұмыс істеуін тексеру мақсатында, әрқайсысымен 10 реттен алып өлшегенде нәтиже төмендегідей болған. A және B шамаларын салыстырыңыз.",
+    q:"9. Лабораторияда қандай да бір сұйықты 200 миллилитрлік құтыға құятын екі өлшеуіш прибор бар. A және B шамаларын салыстырыңыз.",
     image:"IMG_0824.jpeg",
-    options:[
-      "A) Екі еселенген А шамасы В шамасына тең",
-      "B) А шамасы В шамасынан кіші",
-      "C) А шамасы В шамасынан үлкен",
-      "D) А шамасы В шамасына тең",
-      "E) А шамасы мен В шамасын салыстыруға мәлімет жеткіліксіз"
-    ],
+    options:["A) Екі еселенген А шамасы В шамасына тең","B) А шамасы В шамасынан кіші","C) А шамасы В шамасынан үлкен","D) А шамасы В шамасына тең","E) А шамасы мен В шамасын салыстыруға мәлімет жеткіліксіз"],
     answer:3,
     explanation:"Кестедегі мәлімет бойынша A шамасы мен B шамасы тең. Сондықтан дұрыс жауап — D."
   },
   {
-    section:"Critical",
     q:"10. Құрамында тек 0 мен 1 цифрлары бар неше төрт таңбалы сан жазуға болады?",
     options:["A) 6","B) 9","C) 7","D) 8","E) 5"],
     answer:3,
     explanation:"Төрт таңбалы сан 0-ден басталмайды, сондықтан бірінші цифр тек 1 болады. Қалған 3 орынға 0 немесе 1 қоюға болады: 2³ = 8."
   },
   {
-    section:"Critical",
     q:"11. Кестеде x және y айнымалыларының арасындағы тәуелділік көрсетілген: x: 1, 2, 3, 4, 5; y: 1, 4, 7, 10, 13. Келесі теңдеулердің қайсысы осы тәуелділікті анықтайды?",
     options:["A) y=x+3","B) y=2x+1","C) y=2x-1","D) y=3x-2","E) y=4x-3"],
     answer:3,
-    explanation:"x=1 болса, y=1; x=2 болса, y=4. Бұл y=3x-2 формуласына сәйкес келеді."
+    explanation:"Бұл y=3x-2 формуласына сәйкес келеді."
   },
   {
-    section:"Critical",
     q:"12. Диаграммада дүкендегі тауарлар туралы кейбір деректер берілген. A және B шамаларын салыстырыңыз.",
     image:"IMG_0827.png",
     options:["A) 2B > A","B) 2B < A","C) B > 2A","D) B > A","E) 2B = A"],
@@ -515,7 +519,6 @@ const criticalQuestions = [
     explanation:"Диаграмма бойынша дұрыс салыстыру: 2B > A."
   },
   {
-    section:"Critical",
     q:"13. Суретте көрсетілген мәліметтер бойынша сызбада көрсетілген пәтердің ауданын табыңыз.",
     image:"IMG_0822.jpeg",
     options:["A) 95 м²","B) 94 м²","C) 94,5 м²","D) 945 м²","E) 90 м²"],
@@ -523,14 +526,12 @@ const criticalQuestions = [
     explanation:"Сызбадағы өлшемдер бойынша пәтердің ауданы 94,5 м² болады."
   },
   {
-    section:"Critical",
     q:"14. 3015^2021 дәрежесіндегі соңғы саны a, 2096^1984 дәрежесіндегі соңғы саны b. Төмендегі жауаптарды салыстырыңыз.",
     options:["A) 4 + a = 4 + b","B) 4 + a > 4 + b","C) 4 + a = 5 + b","D) 6 + a = 4 + b","E) 3 + a < 3 + b"],
     answer:4,
-    explanation:"3015 санының кез келген дәрежесінің соңғы цифры 5, сондықтан a=5. 2096 санының кез келген дәрежесінің соңғы цифры 6, сондықтан b=6. 3+5 < 3+6, демек дұрыс жауап — E."
+    explanation:"3015 соңғы цифры 5, 2096 соңғы цифры 6. Сондықтан 3+5 < 3+6."
   },
   {
-    section:"Critical",
     q:"15. 2026^1826 дәрежесіндегі соңғы саны болса, боялған бөліктің ауданы қандай?",
     image:"IMG_0823.jpeg",
     options:["A) 18 см²","B) 9 см²","C) 12 см²","D) 6 см²","E) 7 см²"],
@@ -539,45 +540,154 @@ const criticalQuestions = [
   }
 ];
 
-const criticalQuiz = document.getElementById("criticalQuiz");
-
-criticalQuestions.forEach((item, index) => {
-  let html = `<div class="question">
-    <b>${item.q}</b>`;
-
-  if(item.image){
-    html += `<img class="question-image" src="${item.image}" alt="Question image">`;
+const analyticalIntroQuestions = [
+  {
+    q:"16. Сөйлемді мағынасына сай толықтырыңыз. Математика әлдеқашан дүниені танудың … жақтарын зерттейтін физика, химия, биология, астрономия сияқты ғылымдардың күнделікті қолданатын зерттеу құралына айналғаны қазіргі кезде еш дау тудырмас ақиқатқа айналып отыр.",
+    options:["A) сапалық","B) жинақылық","C) тұтас","D) салалық","E) беймәлім"],
+    answer:0,
+    explanation:"Мағынасына сай дұрыс сөз — сапалық."
+  },
+  {
+    q:"17. Сөйлемді мағынасы жуық сөз тіркестерімен аяқтаңыз. Өзеннің ар жағына өтсе, [...].",
+    options:["A) қауіптен құтылады","B) арман мен мақсат","C) асыр салмай","D) бақыт белесі","E) құрышы қанбастан"],
+    answer:0,
+    explanation:"Өзеннің ар жағына өтсе, қауіптен құтылады деген мағына сәйкес келеді."
+  },
+  {
+    q:"18. Мәтіндегі бос орынды толтырыңыз. Аю - жыртқыш аң. Ол [...] орманда тіршілік етеді.",
+    options:["A) жақын","B) шалғай","C) алыс","D) ну","E) қысқы"],
+    answer:3,
+    explanation:"Аю ну орманда тіршілік етеді."
   }
+];
 
-  item.options.forEach((option, optionIndex) => {
-    html += `
-      <label>
-        <input type="radio" name="critical${index}" value="${optionIndex}">
-        ${option}
-      </label>
-    `;
+const analyticalText1Questions = [
+  {
+    q:"19. «Ұлғайды» сөзіне мағынасы жақын сөзді табыңыз.",
+    options:["A) өндірді","B) жайылды","C) ұласты","D) ұқсатты","E) көбейді"],
+    answer:4,
+    explanation:"Ұлғайды = көбейді."
+  },
+  {
+    q:"20. Берілген мәтіннің мақсатын анықтаңыз.",
+    options:["A) Әлеуметтік-экономикалық өзгерістерді және оның тілге әсерін көрсету","B) Қалам қайраткерлерінің жұмысын қазақ халқына таныту","C) Тіл саясатын жоғары деңгейде көрсету","D) Оқу-білім мәселесінің дамуын көздері арқылы көрсету","E) Тілді дәуірлеудің қағидаттарын қайта айқындау"],
+    answer:0,
+    explanation:"Мәтінде қоғамдағы өзгерістер мен оның тіл дамуына әсері көрсетілген."
+  },
+  {
+    q:"21. Берілген мәтінге сәйкес тақырыпты таңдаңыз.",
+    options:["A) Діни оқу","B) Кітап бастыру ісі","C) Тіл мен қоғам ықпалдастығы","D) Тілдің даму кезеңдері","E) Тіл саясаты"],
+    answer:2,
+    explanation:"Мәтіннің негізгі тақырыбы — тіл мен қоғамның өзара ықпалы."
+  },
+  {
+    q:"22. «Ақырғы» сөзіне мағынасы жақын сөзді табыңыз.",
+    options:["A) бастапқы","B) алғашқы","C) соңғы","D) ортаңғы","E) бірінші"],
+    answer:2,
+    explanation:"Ақырғы = соңғы."
+  },
+  {
+    q:"23. Берілген мәтіннің мақсатын анықтаңыз.",
+    options:["A) жаратылыстану ғылымындағы жетістіктер туралы","B) жаратылыстану ғылымының зерттелуі туралы","C) жаратылыстану ғылымы туралы түсінік","D) математикалық амалдармен оқытылатын ғылым туралы","E) жаратылыстану ғылымының шығу тарихынан шолу"],
+    answer:2,
+    explanation:"Берілген жауап кілті бойынша дұрыс жауап — C."
+  },
+  {
+    q:"24. Берілген мәтінге сәйкес тақырыпты таңдаңыз.",
+    options:["A) Жаратылыс","B) Дәл ғылымдар","C) Зерттелім","D) Ғалымдар","E) Жаратылыс заңы"],
+    answer:1,
+    explanation:"Берілген жауап кілті бойынша дұрыс жауап — B."
+  }
+];
+
+const analyticalText2Questions = [
+  {
+    q:"25. Мәтінге сәйкес ақпаратты табыңыз.",
+    options:["A) Тірі және өлі жүйелердің ерекшелігі туралы","B) Математикалық аксиомалар туралы","C) Сыртқы ортамен қатынас жайлы","D) Ақпарат алмасу процестері жайлы","E) Тірі жүйенің түрлері туралы"],
+    answer:0,
+    explanation:"Мәтінде тірі және тірі емес жүйелердің ерекшелігі туралы айтылған."
+  },
+  {
+    q:"26. Мәтіндегі мәліметтің ақпарат көзін анықтаңыз.",
+    options:["A) Мәтін көркем шығармадан үзінді","B) Мәтін оқу құралынан үзінді","C) Мәтін түсіндірме сөздіктен үзінді","D) Екі тілді аударма сөздіктен үзінді","E) Мәтін синонимдер сөздігінен үзінді"],
+    answer:2,
+    explanation:"Жүйе ұғымына анықтама берілгендіктен, бұл түсіндірме сөздікке жақын."
+  },
+  {
+    q:"27. Фактіге сәйкес келетін жауап.",
+    options:["A) Сандық жүйе қатынасы","B) Тірі жүйедегі үдерістер","C) Жүйе түрлері","D) Биологиялық категориялар","E) Өзін-өзі өндіруші процесс"],
+    answer:4,
+    explanation:"Мәтінде тірі жүйелерге өзін-өзі өндіру процесі тән екені айтылған."
+  }
+];
+
+const analyticalText3Questions = [
+  {
+    q:"28. Мәтіндегі мәліметтің ақпарат көзін анықтаңыз.",
+    options:["A) Мәтін драмалық шығармадан проза жанрынан үзінді","B) Мәтін антонимдер сөздігінен үзінді","C) Мәтін көркем шығармадан үзінді","D) Екі тілді аударма сөздіктен үзінді","E) Мәтін оқу құралынан үзінді"],
+    answer:4,
+    explanation:"Мәтін ғылыми-оқулық сипатта берілген, сондықтан оқу құралынан үзінді."
+  },
+  {
+    q:"29. Фактіге сәйкес келетін жауап.",
+    options:["A) Лизин мен аргинин","B) Ядро","C) Екі заттық комплекс","D) Хромосома","E) Хроматин"],
+    answer:3,
+    explanation:"Мәтіннің негізгі нысаны — хромосома."
+  },
+  {
+    q:"30. Мәтінге сәйкес ақпаратты табыңыз.",
+    options:["A) Хромосомалардың екі еселенуі туралы","B) Минералды заттардың маңыздылығы туралы","C) Хромосоманың құрылымы жөнінде","D) Екі хроматидтің бөлінуі жайлы","E) Полимераза ферментінің пайда болу жолдарын зерттеу туралы"],
+    answer:2,
+    explanation:"Мәтінде хромосоманың құрамы мен құрылымы туралы айтылған."
+  }
+];
+
+function renderQuiz(containerId, questions, namePrefix){
+  const container = document.getElementById(containerId);
+
+  questions.forEach((item, index) => {
+    let html = `<div class="question"><b>${item.q}</b>`;
+
+    if(item.image){
+      html += `<img class="question-image" src="${item.image}" alt="Question image">`;
+    }
+
+    item.options.forEach((option, optionIndex) => {
+      html += `
+        <label>
+          <input type="radio" name="${namePrefix}${index}" value="${optionIndex}">
+          ${option}
+        </label>
+      `;
+    });
+
+    html += `</div>`;
+    container.innerHTML += html;
   });
+}
 
-  html += `</div>`;
-  criticalQuiz.innerHTML += html;
-});
+renderQuiz("criticalQuiz", criticalQuestions, "critical");
+renderQuiz("analyticalIntro", analyticalIntroQuestions, "analyticalIntro");
+renderQuiz("analyticalText1", analyticalText1Questions, "analyticalText1");
+renderQuiz("analyticalText2", analyticalText2Questions, "analyticalText2");
+renderQuiz("analyticalText3", analyticalText3Questions, "analyticalText3");
 
-function checkAnswers(){
-  let criticalScore = 0;
-  let resultHTML = "";
+function checkGroup(questions, namePrefix){
+  let score = 0;
+  let html = "";
 
-  criticalQuestions.forEach((item, index) => {
-    const selected = document.querySelector(`input[name="critical${index}"]:checked`);
+  questions.forEach((item, index) => {
+    const selected = document.querySelector(`input[name="${namePrefix}${index}"]:checked`);
     const userAnswer = selected ? Number(selected.value) : null;
 
     if(userAnswer === item.answer){
-      criticalScore++;
-      resultHTML += `<p class="correct">✔ ${item.q}</p>`;
+      score++;
+      html += `<p class="correct">✔ ${item.q}</p>`;
     } else {
-      resultHTML += `<p class="wrong">✘ ${item.q}</p>`;
+      html += `<p class="wrong">✘ ${item.q}</p>`;
     }
 
-    resultHTML += `
+    html += `
       <div class="explanation">
         <b>Дұрыс жауап:</b> ${item.options[item.answer]}<br>
         <b>Сіздің жауабыңыз:</b> ${userAnswer !== null ? item.options[userAnswer] : "Жауап берілмеді"}<br>
@@ -586,30 +696,49 @@ function checkAnswers(){
     `;
   });
 
+  return {score, html};
+}
+
+function checkAnswers(){
+  const critical = checkGroup(criticalQuestions, "critical");
+  const aIntro = checkGroup(analyticalIntroQuestions, "analyticalIntro");
+  const aText1 = checkGroup(analyticalText1Questions, "analyticalText1");
+  const aText2 = checkGroup(analyticalText2Questions, "analyticalText2");
+  const aText3 = checkGroup(analyticalText3Questions, "analyticalText3");
+
+  const analyticalScore = aIntro.score + aText1.score + aText2.score + aText3.score;
+  const totalScore = critical.score + analyticalScore;
+  const totalQuestions = 30;
+
   let level = "";
   let message = "";
 
-  if(criticalScore <= 5){
+  if(totalScore <= 10){
     level = "Бастапқы деңгей";
-    message = "Сыни ойлау бойынша көбірек практика қажет.";
-  } else if(criticalScore <= 11){
+    message = "Сізге әлі көбірек дайындық керек.";
+  } else if(totalScore <= 22){
     level = "Орташа деңгей";
-    message = "Негізгі түсінік бар, бірақ толық вариантқа дайындықты жалғастыру керек.";
+    message = "Негізгі түсінік бар, бірақ қосымша практика қажет.";
   } else {
-    level = "Жақсы нәтиже";
-    message = "Нәтижеңіз жақсы. Енді қалған блоктармен толықтыру керек.";
+    level = "Жақсы дайындық";
+    message = "Нәтижеңіз жақсы. Енді тұрақты қайталау маңызды.";
   }
 
   const finalBlock = `
     <div class="result-box">
-      <h2>Сыни ойлау нәтижеңіз: ${criticalScore}/${criticalQuestions.length}</h2>
+      <h2>Жалпы нәтижеңіз: ${totalScore}/${totalQuestions}</h2>
       <h2>${level}</h2>
       <p>${message}</p>
+
+      <div class="score-grid">
+        <div class="score-item">Сыни ойлау: ${critical.score}/15</div>
+        <div class="score-item">Аналитикалық ойлау: ${analyticalScore}/15</div>
+      </div>
     </div>
 
     <div class="contact-box">
       <h2>ҚОСЫМША ТЕГІН ТЕСТТЕР TELEGRAM-КАНАЛДА</h2>
-      <p>Сыни ойлау, аналитикалық ойлау, ағылшын және педагогика бойынша қосымша тегін тесттер Telegram-каналда жарияланады.</p>
+      <p>ТГО, ағылшын және педагогика бойынша қосымша тегін тесттер Telegram-каналда жарияланады.</p>
       <p>Дополнительные бесплатные тесты публикуются в Telegram-канале.</p>
 
       <a class="contact-btn telegram" href="https://t.me/+8SolEPgN4Is0MTMy" target="_blank">
@@ -631,11 +760,12 @@ function checkAnswers(){
     </div>
   `;
 
-  document.getElementById("results").innerHTML = finalBlock + resultHTML;
+  document.getElementById("results").innerHTML =
+    finalBlock +
+    "<h2>Сыни ойлау жауаптары</h2>" + critical.html +
+    "<h2>Аналитикалық ойлау жауаптары</h2>" + aIntro.html + aText1.html + aText2.html + aText3.html;
 
-  document.getElementById("results").scrollIntoView({
-    behavior:"smooth"
-  });
+  document.getElementById("results").scrollIntoView({behavior:"smooth"});
 }
 </script>
 
