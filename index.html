@@ -5,9 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Вариант 1 — Магистратура КТ</title>
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RQRSQ92JD8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RQRSQ92JD8');
+  </script>
+
   <style>
     *{
       box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
     }
 
     body{
@@ -116,6 +130,16 @@
       line-height:1.5;
     }
 
+    .question-image{
+      width:100%;
+      max-width:560px;
+      display:block;
+      margin:12px auto;
+      border-radius:12px;
+      border:1px solid #ddd;
+      background:white;
+    }
+
     label{
       display:block;
       background:white;
@@ -186,7 +210,7 @@
     }
 
     .locked{
-      opacity:0.65;
+      opacity:0.75;
       background:#fafafa;
     }
 
@@ -292,7 +316,7 @@
     <h1>Вариант 1 — Магистратура КТ</h1>
     <p>Міндетті блоктар бойынша дайындық тесті</p>
     <p>Сыни ойлау, аналитикалық ойлау және ағылшын тілі</p>
-    <span class="badge">Қазір: Сыни ойлау бөлімі • 8 сұрақ</span>
+    <span class="badge">Қазір: Сыни ойлау бөлімі • 15 сұрақ</span>
   </div>
 
   <div class="nav-buttons">
@@ -309,7 +333,7 @@
       <li><b>Аналитикалық ойлау:</b> кейін қосылады</li>
       <li><b>Ағылшын тілі:</b> 50 сұрақ кейін қосылады</li>
     </ul>
-    <p>Қазір бірінші кезең ретінде сыни ойлау бөлігінің алғашқы 8 сұрағы дайын.</p>
+    <p>Қазір бірінші кезең ретінде сыни ойлау бөлімі толық 15 сұрақпен дайын.</p>
   </div>
 
   <section id="critical" class="card">
@@ -326,7 +350,7 @@
   <section id="analytical" class="card locked">
     <h2>Part 2. Аналитикалық ойлау</h2>
     <p>Бұл бөлім кейін қосылады.</p>
-    <p>Мұнда sticky text формат болады: толық мәтін жоғарыда тұрады, сұрақтар астында жылжиды.</p>
+    <p>Мұнда толық мәтін жоғарыда sticky болып тұрады, сұрақтар астында жылжиды.</p>
   </section>
 
   <section id="english" class="card locked">
@@ -400,104 +424,29 @@ const criticalQuestions = [
     options:["A) 4 минут","B) 20 минут","C) 240 минут","D) 80 минут","E) 10 минут"],
     answer:4,
     explanation:"3 қасқыр 2 қойды 40 минутта жейді. 6 қасқыр 2 есе көп, сондықтан сол жұмысты 20 минутта бітіреді. Бір қойға 10 минут кетеді."
-  }
-];
-
-const criticalQuiz = document.getElementById("criticalQuiz");
-
-criticalQuestions.forEach((item, index) => {
-  let html = `<div class="question">
-    <b>${item.q}</b>`;
-
-  item.options.forEach((option, optionIndex) => {
-    html += `
-      <label>
-        <input type="radio" name="critical${index}" value="${optionIndex}">
-        ${option}
-      </label>
-    `;
-  });
-
-  html += `</div>`;
-  criticalQuiz.innerHTML += html;
-});
-
-function checkAnswers(){
-  let criticalScore = 0;
-  let resultHTML = "";
-
-  criticalQuestions.forEach((item, index) => {
-    const selected = document.querySelector(`input[name="critical${index}"]:checked`);
-    const userAnswer = selected ? Number(selected.value) : null;
-
-    if(userAnswer === item.answer){
-      criticalScore++;
-      resultHTML += `<p class="correct">✔ ${item.q}</p>`;
-    } else {
-      resultHTML += `<p class="wrong">✘ ${item.q}</p>`;
-    }
-
-    resultHTML += `
-      <div class="explanation">
-        <b>Дұрыс жауап:</b> ${item.options[item.answer]}<br>
-        <b>Сіздің жауабыңыз:</b> ${userAnswer !== null ? item.options[userAnswer] : "Жауап берілмеді"}<br>
-        <b>Түсіндірме:</b> ${item.explanation}
-      </div>
-    `;
-  });
-
-  let level = "";
-  let message = "";
-
-  if(criticalScore <= 3){
-    level = "Бастапқы деңгей";
-    message = "Сыни ойлау бойынша көбірек практика қажет.";
-  } else if(criticalScore <= 6){
-    level = "Орташа деңгей";
-    message = "Негізгі түсінік бар, бірақ толық вариантқа дайындықты жалғастыру керек.";
-  } else {
-    level = "Жақсы нәтиже";
-    message = "Нәтижеңіз жақсы. Енді қалған сұрақтармен толықтыру керек.";
-  }
-
-  const finalBlock = `
-    <div class="result-box">
-      <h2>Сыни ойлау нәтижеңіз: ${criticalScore}/${criticalQuestions.length}</h2>
-      <h2>${level}</h2>
-      <p>${message}</p>
-    </div>
-
-    <div class="contact-box">
-      <h2>ҚОСЫМША ТЕГІН ТЕСТТЕР TELEGRAM-КАНАЛДА</h2>
-      <p>Сыни ойлау, аналитикалық ойлау, ағылшын және педагогика бойынша қосымша тегін тесттер Telegram-каналда жарияланады.</p>
-      <p>Дополнительные бесплатные тесты публикуются в Telegram-канале.</p>
-
-      <a class="contact-btn telegram" href="https://t.me/+8SolEPgN4Is0MTMy" target="_blank">
-        Telegram-каналға кіру
-      </a>
-
-      <hr style="margin:20px 0; border:none; border-top:1px solid #ddd;">
-
-      <p><b>Жеке сұрақтарыңыз болса:</b></p>
-      <p>Если есть личные вопросы:</p>
-
-      <a class="contact-btn telegram" href="https://t.me/elnazm_ln" target="_blank">
-        Telegram-ға жазу
-      </a>
-
-      <a class="contact-btn whatsapp" href="https://wa.me/77007976745?text=Сәлеметсіз%20бе!%20КТ%20бойынша%20дайындық%20туралы%20білгім%20келеді.%0AЗдравствуйте!%20Хочу%20узнать%20о%20подготовке%20к%20КТ." target="_blank">
-        WhatsApp-қа жазу
-      </a>
-    </div>
-  `;
-
-  document.getElementById("results").innerHTML = finalBlock + resultHTML;
-
-  document.getElementById("results").scrollIntoView({
-    behavior:"smooth"
-  });
-}
-</script>
-
-</body>
-</html>
+  },
+  {
+    section:"Critical",
+    q:"9. Лабораторияда қандай да бір сұйықты 200 миллилитрлік құтыға құятын екі өлшеуіш прибор бар. Екі прибордың қаншалықты дәл жұмыс істеуін тексеру мақсатында, әрқайсысымен 10 реттен алып өлшегенде нәтиже төмендегідей болған. A және B шамаларын салыстырыңыз.",
+    image:"IMG_0824.jpeg",
+    options:[
+      "A) Екі еселенген А шамасы В шамасына тең",
+      "B) А шамасы В шамасынан кіші",
+      "C) А шамасы В шамасынан үлкен",
+      "D) А шамасы В шамасына тең",
+      "E) А шамасы мен В шамасын салыстыруға мәлімет жеткіліксіз"
+    ],
+    answer:3,
+    explanation:"Кестедегі мәлімет бойынша A шамасы мен B шамасы тең. Сондықтан дұрыс жауап — D."
+  },
+  {
+    section:"Critical",
+    q:"10. Құрамында тек 0 мен 1 цифрлары бар неше төрт таңбалы сан жазуға болады?",
+    options:["A) 6","B) 9","C) 7","D) 8","E) 5"],
+    answer:3,
+    explanation:"Төрт таңбалы сан 0-ден басталмайды, сондықтан бірінші цифр тек 1 болады. Қалған 3 орынға 0 немесе 1 қоюға болады: 2³ = 8."
+  },
+  {
+    section:"Critical",
+    q:"11. Кестеде x және y айнымалыларының арасындағы тәуелділік көрсетілген: x: 1, 2, 3, 4, 5; y: 1, 4, 7, 10, 13. Келесі теңдеулердің қайсысы осы тәуелділікті анықтайды?",
+    options:["A) y=x+3","B) y=2x+1","C)
