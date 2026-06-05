@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вариант 1 — Магистратура КТ</title>
+
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:linear-gradient(135deg,#e3f2fd,#f1f8e9);
+      color:#1b1b1b;
+    }
+
+    .wrapper{
+      max-width:950px;
+      margin:auto;
+      padding:16px;
+    }
+
+    .hero{
+      background:linear-gradient(135deg,#1565c0,#43a047);
+      color:white;
+      padding:28px 20px;
+      border-radius:22px;
+      text-align:center;
+      margin-bottom:18px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .hero h1{
+      margin:0 0 12px;
+      font-size:30px;
+      line-height:1.2;
+    }
+
+    .hero p{
+      margin:8px 0;
+      font-size:16px;
+      line-height:1.5;
+    }
+
+    .badge{
+      display:inline-block;
+      background:white;
+      color:#1565c0;
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:bold;
+      margin-top:12px;
+      font-size:14px;
+    }
+
+    .nav-buttons{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-bottom:18px;
+    }
+
+    .nav-buttons a{
+      text-align:center;
+      text-decoration:none;
+      background:white;
+      color:#1565c0;
+      padding:14px;
+      border-radius:14px;
+      font-weight:bold;
+      box-shadow:0 5px 15px rgba(0,0,0,0.08);
+      border:1px solid #dbeafe;
+    }
+
+    .nav-buttons a:hover{
+      background:#e3f2fd;
+    }
+
+    .card{
+      background:white;
+      padding:22px;
+      border-radius:20px;
+      margin-bottom:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .card h2{
+      margin-top:0;
+      color:#1565c0;
+      font-size:22px;
+    }
+
+    .section-title{
+      background:#e3f2fd;
+      border-left:5px solid #1565c0;
+      padding:14px;
+      border-radius:14px;
+      margin-bottom:18px;
+    }
+
+    .question{
+      background:#f7f7f7;
+      padding:18px;
+      border-radius:16px;
+      margin-bottom:16px;
+      border-left:5px solid #43a047;
+    }
+
+    .question b{
+      display:block;
+      margin-bottom:12px;
+      font-size:16px;
+      line-height:1.5;
+    }
+
+    label{
+      display:block;
+      background:white;
+      padding:12px;
+      border-radius:12px;
+      margin:8px 0;
+      border:1px solid #ddd;
+      cursor:pointer;
+      line-height:1.4;
+    }
+
+    label:hover{
+      background:#e8f5e9;
+    }
+
+    input[type="radio"]{
+      margin-right:8px;
+      transform:scale(1.1);
+    }
+
+    button{
+      width:100%;
+      background:#1565c0;
+      color:white;
+      border:none;
+      padding:16px;
+      border-radius:14px;
+      cursor:pointer;
+      font-size:18px;
+      font-weight:bold;
+      margin-top:10px;
+    }
+
+    button:hover{
+      background:#0d47a1;
+    }
+
+    .result-box{
+      background:#e8f5e9;
+      border:2px solid #43a047;
+      padding:22px;
+      border-radius:20px;
+      text-align:center;
+      margin-bottom:18px;
+    }
+
+    .result-box h2{
+      margin-top:0;
+      color:#2e7d32;
+    }
+
+    .correct{
+      color:green;
+      font-weight:bold;
+    }
+
+    .wrong{
+      color:red;
+      font-weight:bold;
+    }
+
+    .explanation{
+      background:#f1f8e9;
+      padding:12px;
+      margin:10px 0 18px;
+      border-radius:12px;
+      line-height:1.5;
+    }
+
+    .locked{
+      opacity:0.65;
+      background:#fafafa;
+    }
+
+    .contact-box{
+      background:#ffffff;
+      border:2px solid #1565c0;
+      padding:22px;
+      border-radius:20px;
+      text-align:center;
+      margin-bottom:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .contact-box h2{
+      color:#1565c0;
+      margin-top:0;
+    }
+
+    .contact-box p{
+      line-height:1.5;
+      font-size:16px;
+    }
+
+    .contact-btn{
+      display:block;
+      text-decoration:none;
+      color:white;
+      padding:14px;
+      border-radius:14px;
+      margin:10px 0;
+      font-weight:bold;
+      font-size:17px;
+    }
+
+    .telegram{
+      background:#229ED9;
+    }
+
+    .whatsapp{
+      background:#25D366;
+    }
+
+    .footer{
+      text-align:center;
+      color:#555;
+      font-size:14px;
+      padding:20px 0;
+    }
+
+    @media(max-width:600px){
+      .wrapper{
+        padding:12px;
+      }
+
+      .hero{
+        padding:24px 16px;
+        border-radius:18px;
+      }
+
+      .hero h1{
+        font-size:24px;
+      }
+
+      .hero p{
+        font-size:15px;
+      }
+
+      .nav-buttons{
+        grid-template-columns:1fr;
+      }
+
+      .card{
+        padding:16px;
+        border-radius:17px;
+      }
+
+      .question{
+        padding:15px;
+      }
+
+      .question b{
+        font-size:15px;
+      }
+
+      label{
+        font-size:15px;
+        padding:11px;
+      }
+
+      button{
+        font-size:16px;
+        padding:15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div class="hero">
+    <h1>Вариант 1 — Магистратура КТ</h1>
+    <p>Міндетті блоктар бойынша дайындық тесті</p>
+    <p>Сыни ойлау, аналитикалық ойлау және ағылшын тілі</p>
+    <span class="badge">Қазір: Сыни ойлау бөлімі • 8 сұрақ</span>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="#critical">Сыни ойлау</a>
+    <a href="#analytical">Аналитикалық ойлау</a>
+    <a href="#english">Ағылшын тілі</a>
+  </div>
+
+  <div class="card">
+    <h2>Нұсқаулық</h2>
+    <p>Бұл сайтта толық Вариант 1 болады.</p>
+    <ul>
+      <li><b>Сыни ойлау:</b> 15 сұрақ</li>
+      <li><b>Аналитикалық ойлау:</b> кейін қосылады</li>
+      <li><b>Ағылшын тілі:</b> 50 сұрақ кейін қосылады</li>
+    </ul>
+    <p>Қазір бірінші кезең ретінде сыни ойлау бөлігінің алғашқы 8 сұрағы дайын.</p>
+  </div>
+
+  <section id="critical" class="card">
+    <div class="section-title">
+      <h2>Part 1. Сыни ойлау</h2>
+      <p>Дұрыс жауапты таңдаңыз.</p>
+    </div>
+
+    <div id="criticalQuiz"></div>
+
+    <button onclick="checkAnswers()">Нәтижені көру / Показать результат</button>
+  </section>
+
+  <section id="analytical" class="card locked">
+    <h2>Part 2. Аналитикалық ойлау</h2>
+    <p>Бұл бөлім кейін қосылады.</p>
+    <p>Мұнда sticky text формат болады: толық мәтін жоғарыда тұрады, сұрақтар астында жылжиды.</p>
+  </section>
+
+  <section id="english" class="card locked">
+    <h2>Part 3. Ағылшын тілі</h2>
+    <p>Бұл бөлім кейін қосылады.</p>
+    <p>Listening + Lexico-Grammar + Reading толық 50 сұрақ болады.</p>
+  </section>
+
+  <div id="results"></div>
+
+  <div class="footer">
+    © Focus Masters KT preparation
+  </div>
+
+</div>
+
+<script>
+const criticalQuestions = [
+  {
+    section:"Critical",
+    q:"1. Егер 3x - 2 ≤ 4 болса, x-тің ең үлкен бүтін мәні қандай?",
+    options:["A) 3","B) 6","C) 5","D) 4","E) 2"],
+    answer:4,
+    explanation:"3x - 2 ≤ 4 → 3x ≤ 6 → x ≤ 2. Ең үлкен бүтін мәні — 2."
+  },
+  {
+    section:"Critical",
+    q:"2. Егер -2 ≤ (1 - 4x) / 3 ≤ 6 болса, x-тің бола алатын ең үлкен бүтін мәні қандай?",
+    options:["A) 0","B) -1","C) 1","D) 2","E) -4"],
+    answer:2,
+    explanation:"Теңсіздікті шешкенде x мәндерінің ішіндегі ең үлкен бүтін мән — 1."
+  },
+  {
+    section:"Critical",
+    q:"3. Сымнан қабырғасы 16 см теңқабырғалы үшбұрыш құрастырылды. Егер осы сымды жазып, одан шаршы жасаған болса, осы шаршының ауданын табыңыз.",
+    options:["A) 100 см²","B) 144 см²","C) 256 см²","D) 16 см²","E) 81 см²"],
+    answer:1,
+    explanation:"Үшбұрыш периметрі: 16×3=48 см. Шаршының қабырғасы: 48÷4=12 см. Ауданы: 12²=144 см²."
+  },
+  {
+    section:"Critical",
+    q:"4. (x+3)² + x + 3 = 0 теңдеуінің шешімі бола алатын санды табыңыз.",
+    options:["A) -12","B) -6","C) -4","D) -10","E) -8"],
+    answer:2,
+    explanation:"x=-4 қойсақ: (-4+3)² + (-4) + 3 = 1 - 4 + 3 = 0. Сондықтан дұрыс жауап — -4."
+  },
+  {
+    section:"Critical",
+    q:"5. (x+8)/2 ≤ (x+5)/2 теңсіздігінің шешімі қандай?",
+    options:["A) x=0","B) Q (рационал сандар жиыны)","C) R (нақты сандар жиыны)","D) x∈[-8; -5]","E) шешімі жоқ"],
+    answer:4,
+    explanation:"Екі жақты 2-ге көбейтеміз: x+8 ≤ x+5. 8 ≤ 5 — жалған. Сондықтан шешімі жоқ."
+  },
+  {
+    section:"Critical",
+    q:"6. Егер шаршының a см қабырғасы 0,9 < a < 1,2 аралығында жатса, онда периметрі қай аралықта жатады?",
+    options:["A) 3,6 < P < 4,8","B) 2,7 < P < 3,6","C) 1,8 < P < 2,4","D) 3,9 < P < 4,2","E) 4,5 < P < 6"],
+    answer:0,
+    explanation:"Шаршы периметрі P=4a. 0,9<a<1,2 болса, 3,6<P<4,8."
+  },
+  {
+    section:"Critical",
+    q:"7. А пунктінен В пунктіне қарай автокөлік 65 км/сағ жылдамдықпен шықты. 2 сағаттан кейін В пунктінен оған қарай 80 км/сағ жылдамдықпен мотоцикл шықты. Олар В пунктінен 240 км қашықтықта кездессе, А мен В арақашықтығын табыңыз.",
+    options:["A) 600 км","B) 565 км","C) 680 км","D) 540 км","E) 560 км"],
+    answer:1,
+    explanation:"Мотоцикл 240 км жүрген: 240÷80=3 сағат. Автокөлік 2 сағат ерте шыққан, демек 5 сағат жүрген. 65×5=325 км. Барлық қашықтық: 325+240=565 км."
+  },
+  {
+    section:"Critical",
+    q:"8. Үш қасқыр екі қойды 40 минутта жесе, алты қасқырдың бір қойды жейтін уақыты қандай?",
+    options:["A) 4 минут","B) 20 минут","C) 240 минут","D) 80 минут","E) 10 минут"],
+    answer:4,
+    explanation:"3 қасқыр 2 қойды 40 минутта жейді. 6 қасқыр 2 есе көп, сондықтан сол жұмысты 20 минутта бітіреді. Бір қойға 10 минут кетеді."
+  }
+];
+
+const criticalQuiz = document.getElementById("criticalQuiz");
+
+criticalQuestions.forEach((item, index) => {
+  let html = `<div class="question">
+    <b>${item.q}</b>`;
+
+  item.options.forEach((option, optionIndex) => {
+    html += `
+      <label>
+        <input type="radio" name="critical${index}" value="${optionIndex}">
+        ${option}
+      </label>
+    `;
+  });
+
+  html += `</div>`;
+  criticalQuiz.innerHTML += html;
+});
+
+function checkAnswers(){
+  let criticalScore = 0;
+  let resultHTML = "";
+
+  criticalQuestions.forEach((item, index) => {
+    const selected = document.querySelector(`input[name="critical${index}"]:checked`);
+    const userAnswer = selected ? Number(selected.value) : null;
+
+    if(userAnswer === item.answer){
+      criticalScore++;
+      resultHTML += `<p class="correct">✔ ${item.q}</p>`;
+    } else {
+      resultHTML += `<p class="wrong">✘ ${item.q}</p>`;
+    }
+
+    resultHTML += `
+      <div class="explanation">
+        <b>Дұрыс жауап:</b> ${item.options[item.answer]}<br>
+        <b>Сіздің жауабыңыз:</b> ${userAnswer !== null ? item.options[userAnswer] : "Жауап берілмеді"}<br>
+        <b>Түсіндірме:</b> ${item.explanation}
+      </div>
+    `;
+  });
+
+  let level = "";
+  let message = "";
+
+  if(criticalScore <= 3){
+    level = "Бастапқы деңгей";
+    message = "Сыни ойлау бойынша көбірек практика қажет.";
+  } else if(criticalScore <= 6){
+    level = "Орташа деңгей";
+    message = "Негізгі түсінік бар, бірақ толық вариантқа дайындықты жалғастыру керек.";
+  } else {
+    level = "Жақсы нәтиже";
+    message = "Нәтижеңіз жақсы. Енді қалған сұрақтармен толықтыру керек.";
+  }
+
+  const finalBlock = `
+    <div class="result-box">
+      <h2>Сыни ойлау нәтижеңіз: ${criticalScore}/${criticalQuestions.length}</h2>
+      <h2>${level}</h2>
+      <p>${message}</p>
+    </div>
+
+    <div class="contact-box">
+      <h2>ҚОСЫМША ТЕГІН ТЕСТТЕР TELEGRAM-КАНАЛДА</h2>
+      <p>Сыни ойлау, аналитикалық ойлау, ағылшын және педагогика бойынша қосымша тегін тесттер Telegram-каналда жарияланады.</p>
+      <p>Дополнительные бесплатные тесты публикуются в Telegram-канале.</p>
+
+      <a class="contact-btn telegram" href="https://t.me/+8SolEPgN4Is0MTMy" target="_blank">
+        Telegram-каналға кіру
+      </a>
+
+      <hr style="margin:20px 0; border:none; border-top:1px solid #ddd;">
+
+      <p><b>Жеке сұрақтарыңыз болса:</b></p>
+      <p>Если есть личные вопросы:</p>
+
+      <a class="contact-btn telegram" href="https://t.me/elnazm_ln" target="_blank">
+        Telegram-ға жазу
+      </a>
+
+      <a class="contact-btn whatsapp" href="https://wa.me/77007976745?text=Сәлеметсіз%20бе!%20КТ%20бойынша%20дайындық%20туралы%20білгім%20келеді.%0AЗдравствуйте!%20Хочу%20узнать%20о%20подготовке%20к%20КТ." target="_blank">
+        WhatsApp-қа жазу
+      </a>
+    </div>
+  `;
+
+  document.getElementById("results").innerHTML = finalBlock + resultHTML;
+
+  document.getElementById("results").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+</script>
+
+</body>
+</html>
